@@ -1,4 +1,6 @@
-package totgen.totgen;
+package totgen.domain;
+
+
 
 import junit.framework.Test;
 import junit.framework.TestCase;

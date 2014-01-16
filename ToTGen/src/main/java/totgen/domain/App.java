@@ -1,4 +1,4 @@
-package totgen.totgen;
+package totgen.domain;
 
 /**
  * Hello world!
