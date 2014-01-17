@@ -37,14 +37,6 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.6</version>
-                <configuration>
-                    <instrumentation>
-                        <includes>
-                            <include>superlabra.ristinolla.logiikka/*.class</include>
-                            <include>superlabra.ristinolla.tekoaly/*.class</include>
-                        </includes>
-                    </instrumentation>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.pitest</groupId>
@@ -52,12 +44,22 @@
                 <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>superlabra.ristinolla.logiikka*</param>
-                        <param>superlabra.ristinolla.tekoaly*</param>
+                        <param>totgen.lauseenkomponentit.Disjunktio</param>
+                        <param>totgen.lauseenkomponentit.Ekvivalenssi</param>
+                        <param>totgen.lauseenkomponentit.Implikaatio</param>
+                        <param>totgen.lauseenkomponentit.Konjunktio</param>
+                        <param>totgen.lauseenkomponentit.Negaatio</param>     
+                        <param>totgen.lauseenkomponentit.Propositio</param>    
+                        <param>totgen.domain.Lause</param>                    
                     </targetClasses>
                     <targetTests>
-                        <param>superlabra.ristinolla.logiikka*</param>
-                        <param>superlabra.ristinolla.tekoaly*</param>
+                        <param>totgen.lauseenkomponentit.DisjunktioTest</param>
+                        <param>totgen.lauseenkomponentit.EkvivalenssiTest</param>
+                        <param>totgen.lauseenkomponentit.ImplikaatioTest</param>
+                        <param>totgen.lauseenkomponentit.KonjunktioTest</param>
+                        <param>totgen.lauseenkomponentit.NegaatioTest</param>     
+                        <param>totgen.lauseenkomponentit.PropositioTest</param>  
+                        <param>totgen.domain.LauseTest</param>     
                     </targetTests>
                 </configuration>
             </plugin>
