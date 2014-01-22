@@ -19,14 +19,13 @@ import totgen.lauseenkomponentit.Propositio;
  */
 public class LauseTest extends TestCase {
 
-    ArrayList<Propositio> propositiot = new ArrayList<Propositio>();
-    Propositio a = new Propositio();
-    Propositio b = new Propositio();
+    Propositiotaulu propositiot = new Propositiotaulu();
+    Propositio a = propositiot.LisaaPropositio("A");
+    Propositio b = propositiot.LisaaPropositio("B");
     int[] totuusarvot;
 
     public void testLauseTotuudetAjaB() {
-        propositiot.add(a);
-        propositiot.add(b);
+
         Lause lause = new Lause(new Konjunktio(a, b), propositiot);
         totuusarvot = new int[]{1, 1};
         assertEquals("" + true + " " + true + " " + true, lause.muodostaTotuusrivi(totuusarvot));
@@ -40,8 +39,7 @@ public class LauseTest extends TestCase {
     }
 
     public void testLauseTotuudetAtaiB() {
-        propositiot.add(a);
-        propositiot.add(b);
+
         Lause lause = new Lause(new Disjunktio(a, b), propositiot);
         totuusarvot = new int[]{1, 1};
         assertEquals("" + true + " " + true + " " + true, lause.muodostaTotuusrivi(totuusarvot));
@@ -54,8 +52,7 @@ public class LauseTest extends TestCase {
     }
 
     public void testLauseTotuudetAniinB() {
-        propositiot.add(a);
-        propositiot.add(b);
+
         Lause lause = new Lause(new Implikaatio(a, b), propositiot);
         totuusarvot = new int[]{1, 1};
         assertEquals("" + true + " " + true + " " + true, lause.muodostaTotuusrivi(totuusarvot));
@@ -68,8 +65,7 @@ public class LauseTest extends TestCase {
     }
 
     public void testLauseTotuudetAjossB() {
-        propositiot.add(a);
-        propositiot.add(b);
+
         Lause lause = new Lause(new Ekvivalenssi(a, b), propositiot);
         totuusarvot = new int[]{1, 1};
         assertEquals("" + true + " " + true + " " + true, lause.muodostaTotuusrivi(totuusarvot));
