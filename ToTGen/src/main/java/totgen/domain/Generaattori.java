@@ -5,6 +5,7 @@
  */
 package totgen.domain;
 
+import totgen.taulut.Propositiotaulu;
 import java.util.HashMap;
 import totgen.generoijat.Alilausegeneroija;
 import totgen.lauseenkomponentit.Komponentti;
@@ -21,6 +22,7 @@ public class Generaattori {
     public Generaattori() {
         this.propositiot = new Propositiotaulu();
     }
+
 
     public Lause generoi(String syote) {
     Alilausegeneroija generoija = new Alilausegeneroija(syote);

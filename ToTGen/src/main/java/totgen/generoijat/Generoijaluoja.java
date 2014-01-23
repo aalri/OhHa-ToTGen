@@ -11,6 +11,7 @@ import totgen.lauseenkomponentit.Ekvivalenssi;
 import totgen.lauseenkomponentit.Implikaatio;
 import totgen.lauseenkomponentit.Komponentti;
 import totgen.lauseenkomponentit.Konjunktio;
+import totgen.lauseenkomponentit.Negaatio;
 import totgen.lauseenkomponentit.Propositio;
 
 /**
@@ -25,11 +26,11 @@ public class Generoijaluoja {
 
     public Komponentti luo(String syote, Komponentti[] komponentit) {
         Komponentti k1 = komponentit[0];
+        System.out.println("luo: "+ syote);
         if (syote.contentEquals("not")) {
-            return null;
+            return new Negaatio(k1);
         } else {
-            Komponentti k2 = komponentit[1];
-            System.out.println("luo: "+ syote);
+            Komponentti k2 = komponentit[1];            
             if (syote.contentEquals("and")) {
                 return new Konjunktio(k1,k2);                
             }

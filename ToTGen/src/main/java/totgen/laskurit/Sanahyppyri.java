@@ -16,9 +16,6 @@ public class Sanahyppyri {
     }
 
     public int hyppaaTulevaSana(String syote) {
-        if (syote.length() <= 0){
-            return 0;
-        }
         int alku = 0;
         while (alku < syote.length()&&(!syote.substring(alku, alku+1).contentEquals(" "))) {
             alku++;

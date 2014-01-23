@@ -6,5 +6,7 @@ Vähintään päivämäärä, käytetty aika ja ajankäytön kohde
 21.tammikuuta, 1h Aloitettu Luokkaa Generaattori
 
 22.tammikuuta, 4,5h Työstetty luokkaa Generaattori, Lause ja pakkauksen generoijat Luokkia Alilausegeneroija ja Generoijaluoja.
- 	       Myös Luotu laskurit paketin luokat Sanahyppyri, SuljeLaskuri "()" ja Tyhjähyppyri. Luotu Propositiotaulu luokka.
+ 	       Myös Luotu laskurit paketin luokat Sanahyppyri, SuljeLaskuri "()" ja Tyhjähyppyri. Luotu Propositiotaulu luokka. Aloitettu määrittelyvaiheen kaavion teko.
+
+23.tammikuuta, 4h Jatkettu luokkaa Generaattori, sekä muokattu sen käyttämiä luokkia. Luotu luokka Totuustaulu ja pakkaukseen taulut luokka Vaihtoehtotaulu. Luotu testit pakkausten laskurit ja taulut luokille. Jatkettu määrittelyvaiheen kaaviota.
 

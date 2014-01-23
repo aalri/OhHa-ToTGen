@@ -5,6 +5,7 @@
  */
 package totgen.domain;
 
+import totgen.taulut.Propositiotaulu;
 import java.util.ArrayList;
 import junit.framework.TestCase;
 import totgen.lauseenkomponentit.Disjunktio;
@@ -75,5 +76,11 @@ public class LauseTest extends TestCase {
         assertEquals("" + false + " " + true + " " + false, lause.muodostaTotuusrivi(totuusarvot));
         totuusarvot = new int[]{0, 0};
         assertEquals("" + false + " " + false + " " + true, lause.muodostaTotuusrivi(totuusarvot));
+    }
+
+    public void testLauseGetPropositiotaulu() {
+
+        Lause lause = new Lause(new Ekvivalenssi(a, b), propositiot);
+        lause.getPropositiotaulu();
     }
 }
