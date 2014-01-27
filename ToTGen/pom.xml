@@ -41,24 +41,34 @@
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>0.30</version>
+                <version>0.30</version>                
                 <configuration>
                     <targetClasses>
+                        <param>totgen.laskurit.Sanahyppyri</param>
+                        <param>totgen.laskurit.Suljelaskuri</param>
+                        <param>totgen.laskurit.Tyhjahyppyri</param>
                         <param>totgen.lauseenkomponentit.Disjunktio</param>
                         <param>totgen.lauseenkomponentit.Ekvivalenssi</param>
                         <param>totgen.lauseenkomponentit.Implikaatio</param>
                         <param>totgen.lauseenkomponentit.Konjunktio</param>
                         <param>totgen.lauseenkomponentit.Negaatio</param>     
-                        <param>totgen.lauseenkomponentit.Propositio</param>    
+                        <param>totgen.lauseenkomponentit.Propositio</param>
+                        <param>totgen.taulut.Propositiotaulu</param>
+                        <param>totgen.taulut.Vaihtoehtotaulu</param>    
                         <param>totgen.domain.Lause</param>                    
                     </targetClasses>
                     <targetTests>
+                        <param>totgen.laskurit.SanahyppyriTest</param>
+                        <param>totgen.laskurit.SuljelaskuriTest</param>
+                        <param>totgen.laskurit.TyhjahyppyriTest</param>
                         <param>totgen.lauseenkomponentit.DisjunktioTest</param>
                         <param>totgen.lauseenkomponentit.EkvivalenssiTest</param>
                         <param>totgen.lauseenkomponentit.ImplikaatioTest</param>
                         <param>totgen.lauseenkomponentit.KonjunktioTest</param>
                         <param>totgen.lauseenkomponentit.NegaatioTest</param>     
                         <param>totgen.lauseenkomponentit.PropositioTest</param>  
+                        <param>totgen.taulut.PropositiotauluTest</param>
+                        <param>totgen.taulut.VaihtoehtotauluTest</param>
                         <param>totgen.domain.LauseTest</param>     
                     </targetTests>
                 </configuration>

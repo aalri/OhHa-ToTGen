@@ -6,7 +6,9 @@
 
 package totgen.domain;
 
+import totgen.taulut.Propositiotaulu;
 import java.util.ArrayList;
+import java.util.HashMap;
 import totgen.lauseenkomponentit.Komponentti;
 import totgen.lauseenkomponentit.Propositio;
 
@@ -16,18 +18,32 @@ import totgen.lauseenkomponentit.Propositio;
  */
 public class Lause {
     Komponentti paakonnektiivi;
-    private ArrayList <Propositio> propositiot;
+    private HashMap <String, Propositio> propositiot;
     
-    public Lause (Komponentti paakonnektiivi, ArrayList <Propositio> propositiot){
+    
+    public Lause (Komponentti paakonnektiivi, Propositiotaulu propositiot){
         this.paakonnektiivi = paakonnektiivi;
-        this.propositiot = propositiot;
+        this.propositiot = propositiot.getPropositioTaulu();
+    }
+    
+    public HashMap <String, Propositio> getPropositiotaulu(){
+        return this.propositiot;
+    }
+    
+    public ArrayList <Propositio> getPropositiolista(){
+        ArrayList<Propositio> pro = new ArrayList<Propositio>();
+        for (String p : this.propositiot.keySet()) {
+            pro.add(this.propositiot.get(p));
+        }
+        return pro;
     }
     
     public String muodostaTotuusrivi(int[] totuusarvot){
         String rivi = "";
-        for (int i = 0; i < this.propositiot.size(); i++) {
-            this.propositiot.get(i).asetaTotuus(totuusarvot[i]);
-            rivi += this.propositiot.get(i).totuus() + " ";
+        ArrayList<Propositio> pro = this.getPropositiolista();
+        for (int i = 0; i < pro.size(); i++) {
+            pro.get(i).asetaTotuus(totuusarvot[i]);
+            rivi += pro.get(i).totuus() + " ";
         }
         return rivi + this.paakonnektiivi.totuus();
     }
