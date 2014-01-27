@@ -21,7 +21,7 @@ public class Tyhjahyppyri {
         if (syote.length() <= 0){
             return 0;
         }
-        while (syote.substring(alku, alku+1).contentEquals(" ")) {
+        while (syote.length() > alku && syote.substring(alku, alku+1).contentEquals(" ")) {
             alku++;
         }
         return alku;

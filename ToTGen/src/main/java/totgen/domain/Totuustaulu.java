@@ -8,6 +8,9 @@ package totgen.domain;
 import totgen.taulut.Vaihtoehtotaulu;
 import java.util.ArrayList;
 import totgen.lauseenkomponentit.Propositio;
+import totgen.syntaksinlukijat.Sulkujenlukija;
+import totgen.syntaksinlukijat.Syntaksinlukija;
+import totgen.syntaksinlukijat.TyhjienSulkujenlukija;
 
 /**
  *
@@ -16,12 +19,24 @@ import totgen.lauseenkomponentit.Propositio;
 public class Totuustaulu {
 
     private String syote;
+    private ArrayList<Syntaksinlukija> syntaksinlukijat;
 
     public Totuustaulu(String syote) {
-        this.syote = syote;
+        this.syntaksinlukijat = new ArrayList<Syntaksinlukija>();
+        this.syntaksinlukijat.add(new Sulkujenlukija());
+        this.syntaksinlukijat.add(new TyhjienSulkujenlukija());
+        this.syote = syote;        
     }
 
     public void luoTotuustaulu() {
+        
+        for (Syntaksinlukija s : this.syntaksinlukijat) {
+            if (!s.lue(syote)){
+                System.out.println(s.virheilmoitus());
+                return;
+            }
+        }
+        
         Generaattori generaattori = new Generaattori();
         Lause lause = generaattori.generoi(syote);
         ArrayList<Propositio> lista = lause.getPropositiolista();

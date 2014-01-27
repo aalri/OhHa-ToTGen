@@ -26,7 +26,6 @@ public class Generoijaluoja {
 
     public Komponentti luo(String syote, Komponentti[] komponentit) {
         Komponentti k1 = komponentit[0];
-        System.out.println("luo: "+ syote);
         if (syote.contentEquals("not")) {
             return new Negaatio(k1);
         } else {
@@ -45,6 +44,6 @@ public class Generoijaluoja {
             }
         }
 
-        return null;
+        return k1;
     }
 }
