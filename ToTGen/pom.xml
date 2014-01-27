@@ -44,6 +44,8 @@
                 <version>0.30</version>                
                 <configuration>
                     <targetClasses>
+                        <param>totgen.generoijat.Alilausegeneroija</param>
+                        <param>totgen.generoijat.Generoijatoiminnot</param>
                         <param>totgen.laskurit.Sanahyppyri</param>
                         <param>totgen.laskurit.Suljelaskuri</param>
                         <param>totgen.laskurit.Tyhjahyppyri</param>
@@ -58,6 +60,8 @@
                         <param>totgen.domain.Lause</param>                    
                     </targetClasses>
                     <targetTests>
+                        <param>totgen.generoijat.AlilausegeneroijaTest</param>
+                        <param>totgen.generoijat.GeneroijatoiminnotTest</param>
                         <param>totgen.laskurit.SanahyppyriTest</param>
                         <param>totgen.laskurit.SuljelaskuriTest</param>
                         <param>totgen.laskurit.TyhjahyppyriTest</param>

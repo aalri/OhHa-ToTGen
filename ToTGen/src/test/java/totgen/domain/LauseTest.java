@@ -83,4 +83,5 @@ public class LauseTest extends TestCase {
         Lause lause = new Lause(new Ekvivalenssi(a, b), propositiot);
         lause.getPropositiotaulu();
     }
+    
 }

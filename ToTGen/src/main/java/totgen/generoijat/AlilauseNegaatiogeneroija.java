@@ -26,8 +26,6 @@ public class AlilauseNegaatiogeneroija {
     }
 
     public Komponentti generoi(Propositiotaulu propositiot) {
-        Suljelaskuri suljelaskuri = new Suljelaskuri();
-        Tyhjahyppyri tyhjahyppyri = new Tyhjahyppyri();
         
         
         
@@ -40,7 +38,7 @@ public class AlilauseNegaatiogeneroija {
             Alilausegeneroija generoija1 = new Alilausegeneroija(this.syote);
             this.komponentit[0] = generoija1.generoi(propositiot);
         }else{
-                
+        this.syote = Generoijatoiminnot.annaTulevaSana(this.syote);
         Alilausegeneroija generoija1 = new Alilausegeneroija(this.syote);
         this.komponentit[0] = generoija1.generoi(propositiot);
         

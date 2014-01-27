@@ -21,7 +21,6 @@ public class Propositiotaulu {
     
     public Propositio LisaaPropositio(String nimi){
         if(!this.propositiot.containsKey(nimi)){
-            System.out.println("Loin nimellä:" + nimi);
             this.propositiot.put(nimi, new Propositio());
         }  
         return this.propositiot.get(nimi);
