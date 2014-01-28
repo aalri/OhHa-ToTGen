@@ -30,13 +30,8 @@ public class Alilausegeneroija {
 
     public Komponentti generoi(Propositiotaulu propositiot) {
         
-        
 
-        Tyhjahyppyri tyhjahyppyri = new Tyhjahyppyri();
-
-        this.syote = Generoijatoiminnot.hyppaaTyhja(syote);
-        
-        System.out.println("Generoin: " + this.syote);
+        this.syote = Generoijatoiminnot.hyppaaTyhja(this.syote);        
 
         String ekaKomponenttiSyote;
 
@@ -55,10 +50,9 @@ public class Alilausegeneroija {
             }
         }
 
-        this.syote = this.syote.substring(tyhjahyppyri.hyppaaTyhja(this.syote));
+        this.syote = Generoijatoiminnot.hyppaaTyhja(this.syote);
         String omaKomponenttiSana = Generoijatoiminnot.annaTulevaSana(this.syote);
         this.syote = Generoijatoiminnot.hyppaaSana(this.syote);
-        System.out.println("ToinenKomponentti: " + this.syote);
         
         if (Generoijatoiminnot.komponenttiOnNegaatio(this.syote)) {
             this.syote = Generoijatoiminnot.muutaNegaatioKomponentiksiSekaPalautaMuuLause(this.syote, this.komponentit, 1, propositiot);
@@ -66,10 +60,8 @@ public class Alilausegeneroija {
         } else {
             this.syote = Generoijatoiminnot.muutaKomponentiksiSekaPalautaMuuLause(this.syote, this.komponentit, 1, propositiot);
 
-        }
-        
-        System.out.println("Luo: " + omaKomponenttiSana);
-        
+        }        
+     
         Generoijaluoja generoijaluoja = new Generoijaluoja();
         Komponentti komponentti = generoijaluoja.luo(omaKomponenttiSana, this.komponentit);
 

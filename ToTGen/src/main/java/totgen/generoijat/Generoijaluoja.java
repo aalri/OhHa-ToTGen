@@ -5,14 +5,12 @@
  */
 package totgen.generoijat;
 
-import java.util.HashMap;
 import totgen.lauseenkomponentit.Disjunktio;
 import totgen.lauseenkomponentit.Ekvivalenssi;
 import totgen.lauseenkomponentit.Implikaatio;
 import totgen.lauseenkomponentit.Komponentti;
 import totgen.lauseenkomponentit.Konjunktio;
 import totgen.lauseenkomponentit.Negaatio;
-import totgen.lauseenkomponentit.Propositio;
 
 /**
  *

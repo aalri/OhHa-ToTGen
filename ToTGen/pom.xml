@@ -44,6 +44,10 @@
                 <version>0.30</version>                
                 <configuration>
                     <targetClasses>
+                        <param>totgen.generoijat.Alilausegeneroija</param>
+                        <param>totgen.generoijat.AlilauseNegaatiogeneroija</param>
+                        <param>totgen.generoijat.Generoijatoiminnot</param>
+                        <param>totgen.generoijat.Generoijaluoja</param>
                         <param>totgen.laskurit.Sanahyppyri</param>
                         <param>totgen.laskurit.Suljelaskuri</param>
                         <param>totgen.laskurit.Tyhjahyppyri</param>
@@ -55,9 +59,14 @@
                         <param>totgen.lauseenkomponentit.Propositio</param>
                         <param>totgen.taulut.Propositiotaulu</param>
                         <param>totgen.taulut.Vaihtoehtotaulu</param>    
+                        <param>totgen.syntaksinlukijat.Sulkujenlukija</param>    
                         <param>totgen.domain.Lause</param>                    
                     </targetClasses>
                     <targetTests>
+                        <param>totgen.generoijat.AlilausegeneroijaTest</param>
+                        <param>totgen.generoijat.AlilauseNegaatiogeneroijaTest</param>
+                        <param>totgen.generoijat.GeneroijatoiminnotTest</param>
+                        <param>totgen.generoijat.GeneroijaluojaTest</param>
                         <param>totgen.laskurit.SanahyppyriTest</param>
                         <param>totgen.laskurit.SuljelaskuriTest</param>
                         <param>totgen.laskurit.TyhjahyppyriTest</param>
@@ -69,6 +78,7 @@
                         <param>totgen.lauseenkomponentit.PropositioTest</param>  
                         <param>totgen.taulut.PropositiotauluTest</param>
                         <param>totgen.taulut.VaihtoehtotauluTest</param>
+                        <param>totgen.syntaksinlukijat.SulkujenlukijaTest</param>    
                         <param>totgen.domain.LauseTest</param>     
                     </targetTests>
                 </configuration>

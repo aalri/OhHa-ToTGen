@@ -24,9 +24,8 @@ public class TyhjienSulkujenlukija implements Syntaksinlukija{
                 if(syote.substring(osoitin, osoitin+2).contentEquals("()")){
                     return false;
                 }
-                osoitin++;
-                osoitin += tyhjahyppyri.hyppaaTyhja(syote.substring(osoitin+1))+1;
-                if (syote.substring(osoitin, osoitin+1).contentEquals(")")){
+                osoitin += tyhjahyppyri.hyppaaTyhja(syote.substring(osoitin+1));
+                if (syote.substring(osoitin+1, osoitin+2).contentEquals(")")){
                     return false;
                 }
             }

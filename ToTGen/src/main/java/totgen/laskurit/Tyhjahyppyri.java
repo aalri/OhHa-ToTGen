@@ -18,7 +18,7 @@ public class Tyhjahyppyri {
     
     public int hyppaaTyhja(String syote){
         int alku = 0;
-        if (syote.length() <= 0){
+        if (syote.length() == 0){
             return 0;
         }
         while (syote.length() > alku && syote.substring(alku, alku+1).contentEquals(" ")) {

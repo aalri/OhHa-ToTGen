@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         
-        Totuustaulu totuustaulu = new Totuustaulu("not A or ( not ( D and B ) and ( C ) )");
+        Totuustaulu totuustaulu = new Totuustaulu("not(not A or not(not(D and B)and(C)))");
         totuustaulu.luoTotuustaulu();
         //Generaattori generaattori = new Generaattori();
         //Lause lause = generaattori.generoi("not not ( A and B )");  
