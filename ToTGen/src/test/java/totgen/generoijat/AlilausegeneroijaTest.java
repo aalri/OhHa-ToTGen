@@ -29,6 +29,12 @@ public class AlilausegeneroijaTest extends TestCase {
         taulu.getPropositioTaulu().get("a").asetaTotuus(1);
         taulu.getPropositioTaulu().get("b").asetaTotuus(1);
         assertEquals(true, A.generoi(taulu).totuus());
+<<<<<<< HEAD
+=======
+        taulu.getPropositioTaulu().get("a").asetaTotuus(0);
+        taulu.getPropositioTaulu().get("b").asetaTotuus(1);
+        assertEquals(false, A.generoi(taulu).totuus());
+>>>>>>> d29e3ea482af2753bdfc7416814134be19dd5a9d
     }
 
     public void testgeneroiNegNorm1() {

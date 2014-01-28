@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite failures="0" time="0.001" errors="0" skipped="0" tests="12" name="totgen.generoijat.GeneroijatoiminnotTest">
+=======
+<testsuite failures="0" time="0.01" errors="0" skipped="0" tests="12" name="totgen.generoijat.GeneroijatoiminnotTest">
+>>>>>>> d29e3ea482af2753bdfc7416814134be19dd5a9d
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.7.0_51\jre\bin"/>
@@ -63,14 +67,22 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
+<<<<<<< HEAD
+=======
+  <testcase time="0.01" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testmuutaNegaatioKomponentiksiSekaPalautaMuuLause"/>
+  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testmuutaKomponentiksiSekaPalautaMuuLause"/>
+>>>>>>> d29e3ea482af2753bdfc7416814134be19dd5a9d
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testhyppaaSana"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testhyppaaTyhja"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testannaTulevaSana"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testhyppaaSulkeet"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testhyppaaYksi"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testkomponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta"/>
+<<<<<<< HEAD
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testmuutaKomponentiksiSekaPalautaMuuLause"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testmuutaNegaatioKomponentiksiSekaPalautaMuuLause"/>
+=======
+>>>>>>> d29e3ea482af2753bdfc7416814134be19dd5a9d
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testlauseSisaltaaVainYhdenProposition"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testkyseessaPropositio"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testkomponenttiOnNegaatio"/>

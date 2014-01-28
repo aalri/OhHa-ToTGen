@@ -10,8 +10,9 @@ Vähintään päivämäärä, käytetty aika ja ajankäytön kohde
 
 23.tammikuuta, 4h Jatkettu luokkaa Generaattori, sekä muokattu sen käyttämiä luokkia. Luotu luokka Totuustaulu ja pakkaukseen taulut luokka Vaihtoehtotaulu. Luotu testit pakkausten laskurit ja taulut luokille. Jatkettu määrittelyvaiheen kaaviota.
 
-24.tammikuuta, 5,5h Muokattu luokkaa Generaattori, luotu luokkia. 
+24.tammikuuta, 5,5h Refactoroitu generoijat pakkauksen luokkia, ja luotu staattisia metodeja sisältävä luokka Generoijatoiminnot. 
 
 27.tammikuuta, 2h luotu testit luokille Generoijatoiminnot ja Alilausegeneroija.
 
 28.tammikuuta, 2h luotu testit luokille AlilauseNegaatiogeneroija, Sulkujenlukija, TyhjienSulkujenlukija ja Generoijaluoja.
+

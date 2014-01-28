@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite failures="0" time="0.035" errors="0" skipped="0" tests="5" name="totgen.domain.LauseTest">
+=======
+<testsuite failures="0" time="0.04" errors="0" skipped="0" tests="5" name="totgen.domain.LauseTest">
+>>>>>>> d29e3ea482af2753bdfc7416814134be19dd5a9d
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.7.0_51\jre\bin"/>
@@ -65,7 +69,12 @@
   </properties>
   <testcase time="0.003" classname="totgen.domain.LauseTest" name="testLauseTotuudetAtaiB"/>
   <testcase time="0" classname="totgen.domain.LauseTest" name="testLauseTotuudetAniinB"/>
+<<<<<<< HEAD
   <testcase time="0" classname="totgen.domain.LauseTest" name="testLauseTotuudetAjossB"/>
   <testcase time="0.001" classname="totgen.domain.LauseTest" name="testLauseGetPropositiotaulu"/>
   <testcase time="0" classname="totgen.domain.LauseTest" name="testLauseTotuudetAjaB"/>
+=======
+  <testcase time="0.01" classname="totgen.domain.LauseTest" name="testLauseTotuudetAjossB"/>
+  <testcase time="0" classname="totgen.domain.LauseTest" name="testLauseGetPropositiotaulu"/>
+>>>>>>> d29e3ea482af2753bdfc7416814134be19dd5a9d
 </testsuite>
