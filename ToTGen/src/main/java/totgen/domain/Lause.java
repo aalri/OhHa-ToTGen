@@ -47,4 +47,16 @@ public class Lause {
         }
         return rivi + this.paakonnektiivi.totuus();
     }
+    
+        public String[] muodostaTotuusrivilista(int[] totuusarvot){
+        String rivi = "";
+        String [] lista = new String [totuusarvot.length];
+        ArrayList<Propositio> pro = this.getPropositiolista();
+        for (int i = 0; i < pro.size(); i++) {
+            pro.get(i).asetaTotuus(totuusarvot[i]);
+            lista[i] = "" + pro.get(i).totuus();
+        }
+        lista[totuusarvot.length -1] = "" + this.paakonnektiivi.totuus();
+        return lista;
+    }
 }
