@@ -7,11 +7,14 @@ package totgen.ui;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -28,24 +31,26 @@ public class GeneroiTotuustaulu implements ActionListener {
 
     private JTextField syoteAlue;
     private JTable totuustaulu;
+    private Container mappi;
     private Container container;
-    private TableModel totuustaulunData;
     private JFrame frame;
-    private JTextArea virheilmoitus;
+    private TableModel totuustaulunData;
+    private JLabel virheilmoitus;
 
-    public GeneroiTotuustaulu(JTextField syoteAlue, JTable totuustaulu, TableModel totuustaulunData, Container container, JFrame frame) {
+    public GeneroiTotuustaulu(JTextField syoteAlue, JTable totuustaulu, TableModel totuustaulunData, Container mappi, Container container, JFrame frame) {
         this.syoteAlue = syoteAlue;
         this.totuustaulu = totuustaulu;
-        this.container = container;
+        this.mappi = mappi;
         this.totuustaulunData = totuustaulunData;
+        this.container = container;
+        this.virheilmoitus = new JLabel();
         this.frame = frame;
-        this.virheilmoitus = new JTextArea();
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
 
-        String syote = this.syoteAlue.getText();        
+        String syote = this.syoteAlue.getText();   
         Totuustaulu taulu = new Totuustaulu(syote);
         String syntaksi = taulu.tarkistaSyntaksi();
         
@@ -54,26 +59,33 @@ public class GeneroiTotuustaulu implements ActionListener {
         this.container.remove(this.virheilmoitus);
         
         if (syntaksi.contentEquals("true")){
+        taulu.luoLause();
         taulu.luoTotuustaulu();
         String[] propositiot = taulu.getPropositiot();
         String[][] totuudet = taulu.getTotuudet();        
         this.totuustaulunData = new DefaultTableModel(totuudet, propositiot);
         this.totuustaulu = new JTable(this.totuustaulunData);
         this.container.add(this.totuustaulu);
-        this.container.add(this.totuustaulu.getTableHeader());
+        this.container.add(this.totuustaulu.getTableHeader());        
         this.totuustaulu.setBounds(50, 200, 75 * propositiot.length +60, totuudet.length * 16);
         this.totuustaulu.getTableHeader().setBounds(50, 170, 75 * propositiot.length +60, 30);
         this.totuustaulu.setRowMargin(0);
+        if (this.frame.getBounds().width < this.totuustaulu.getBounds().width + 130 || this.frame.getBounds().height < this.totuustaulu.getBounds().height + 300 ){
+            if (this.totuustaulu.getHeight() < 1000){
+                this.mappi.setBounds(0, 0, this.totuustaulu.getBounds().width + 430,this.totuustaulu.getBounds().height + 300);
+                this.frame.setBounds(this.frame.getBounds().x, this.frame.getBounds().y, this.totuustaulu.getBounds().width + 200,this.totuustaulu.getBounds().height + 300);
+            }         
+        }
         this.totuustaulu.setEnabled(false);
         this.totuustaulu.setGridColor(Color.LIGHT_GRAY);
         this.totuustaulu.setBackground(Color.WHITE);
         //this.totuustaulu.getTableHeader().setEnabled(false);
-        this.frame.repaint();
+        this.container.repaint();
         }else{
-            this.virheilmoitus = new JTextArea(syntaksi);
+            this.virheilmoitus = new JLabel(syntaksi);
             this.container.add(this.virheilmoitus);
-            this.virheilmoitus.setBounds(50, 200, 300, 30);
-            this.frame.repaint();
+            this.virheilmoitus.setBounds(50, 160, 300, 30);
+            this.container.repaint();
         }
     }
 }

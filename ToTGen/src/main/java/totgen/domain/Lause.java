@@ -8,6 +8,7 @@ package totgen.domain;
 
 import totgen.taulut.Propositiotaulu;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import totgen.lauseenkomponentit.Komponentti;
 import totgen.lauseenkomponentit.Propositio;
@@ -32,7 +33,9 @@ public class Lause {
     
     public ArrayList <Propositio> getPropositiolista(){
         ArrayList<Propositio> pro = new ArrayList<Propositio>();
-        for (String p : this.propositiot.keySet()) {
+        ArrayList<String> lista = new ArrayList<String>(this.propositiot.keySet());
+        Collections.sort(lista);        
+        for (String p : lista) {
             pro.add(this.propositiot.get(p));
         }
         return pro;

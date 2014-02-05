@@ -5,9 +5,6 @@
  */
 package totgen.generoijat;
 
-import totgen.laskurit.Sanahyppyri;
-import totgen.laskurit.Suljelaskuri;
-import totgen.laskurit.Tyhjahyppyri;
 import totgen.lauseenkomponentit.Komponentti;
 import totgen.taulut.Propositiotaulu;
 
@@ -22,17 +19,17 @@ public class AlilauseNegaatiogeneroija {
 
     public AlilauseNegaatiogeneroija(String syote) {
         this.syote = syote;
-        this.komponentit = new Komponentti[2];
+        this.komponentit = new Komponentti[1];
     }
 
     public Komponentti generoi(Propositiotaulu propositiot) {
         
         
         
-        String omaKomponenttiSana = this.syote.substring(0, 3);
-        this.syote = this.syote.substring(3);
+        String omaKomponenttiSana = Generoijatoiminnot.annaTulevaSana(this.syote);
+        this.syote = Generoijatoiminnot.hyppaaSana(this.syote);
         this.syote = Generoijatoiminnot.hyppaaTyhja(this.syote);
-        if (this.syote.substring(0, 1).contentEquals("(")) {
+        if (Generoijatoiminnot.komponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta(this.syote)) {
             this.syote = Generoijatoiminnot.hyppaaYksi(this.syote);
             this.syote = Generoijatoiminnot.annaSulkeidenSisainenAlue(this.syote);
             Alilausegeneroija generoija1 = new Alilausegeneroija(this.syote);

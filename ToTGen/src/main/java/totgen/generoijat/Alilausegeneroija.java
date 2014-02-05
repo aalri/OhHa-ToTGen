@@ -42,7 +42,6 @@ public class Alilausegeneroija {
 
         } else {
             if (Generoijatoiminnot.komponenttiOnNegaatio(this.syote)) {
-                
                 this.syote = Generoijatoiminnot.muutaNegaatioKomponentiksiSekaPalautaMuuLause(this.syote, this.komponentit, 0, propositiot);
                 
             } else {

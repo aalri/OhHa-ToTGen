@@ -24,70 +24,56 @@ public class AlilausegeneroijaTest extends TestCase {
     public void testgeneroiUseampipropositio() {
         Alilausegeneroija A = new Alilausegeneroija("a and b");
         Propositiotaulu taulu = new Propositiotaulu();
-        taulu.LisaaPropositio("a");
-        taulu.LisaaPropositio("b");
-        taulu.getPropositioTaulu().get("a").asetaTotuus(1);
-        taulu.getPropositioTaulu().get("b").asetaTotuus(1);
+        asetaTotuudetAB(1, 1, taulu);;
         assertEquals(true, A.generoi(taulu).totuus());
     }
 
     public void testgeneroiNegNorm1() {
         Alilausegeneroija A = new Alilausegeneroija("not a and b");
         Propositiotaulu taulu = new Propositiotaulu();
-        taulu.LisaaPropositio("a");
-        taulu.LisaaPropositio("b");
-        taulu.getPropositioTaulu().get("a").asetaTotuus(1);
-        taulu.getPropositioTaulu().get("b").asetaTotuus(1);
+        asetaTotuudetAB(1, 1, taulu);
         assertEquals(false, A.generoi(taulu).totuus());
     }
 
     public void testgeneroiNegNorm2() {
         Alilausegeneroija A = new Alilausegeneroija("not a and b");
         Propositiotaulu taulu = new Propositiotaulu();
-        taulu.LisaaPropositio("a");
-        taulu.LisaaPropositio("b");
-        taulu.getPropositioTaulu().get("a").asetaTotuus(0);
-        taulu.getPropositioTaulu().get("b").asetaTotuus(1);
+        asetaTotuudetAB(0, 1, taulu);
         assertEquals(true, A.generoi(taulu).totuus());
     }
 
     public void testgeneroiNormNeg1() {
         Alilausegeneroija A = new Alilausegeneroija("a and not b");
         Propositiotaulu taulu = new Propositiotaulu();
-        taulu.LisaaPropositio("a");
-        taulu.LisaaPropositio("b");
-        taulu.getPropositioTaulu().get("a").asetaTotuus(1);
-        taulu.getPropositioTaulu().get("b").asetaTotuus(1);
+        asetaTotuudetAB(1, 1, taulu);
         assertEquals(false, A.generoi(taulu).totuus());
     }
 
     public void testgeneroiNormNeg2() {
         Alilausegeneroija A = new Alilausegeneroija("a and not b");
         Propositiotaulu taulu = new Propositiotaulu();
-        taulu.LisaaPropositio("a");
-        taulu.LisaaPropositio("b");
-        taulu.getPropositioTaulu().get("a").asetaTotuus(1);
-        taulu.getPropositioTaulu().get("b").asetaTotuus(0);
+        asetaTotuudetAB(1, 0, taulu);
         assertEquals(true, A.generoi(taulu).totuus());
     }
 
     public void testgeneroiNegNeg1() {
         Alilausegeneroija A = new Alilausegeneroija("not a and not b");
         Propositiotaulu taulu = new Propositiotaulu();
-        taulu.LisaaPropositio("a");
-        taulu.LisaaPropositio("b");
-        taulu.getPropositioTaulu().get("a").asetaTotuus(0);
-        taulu.getPropositioTaulu().get("b").asetaTotuus(0);
+        asetaTotuudetAB(0, 0, taulu);
         assertEquals(true, A.generoi(taulu).totuus());
     }
 
     public void testgeneroiNegNeg2() {
         Alilausegeneroija A = new Alilausegeneroija("not a and not b");
         Propositiotaulu taulu = new Propositiotaulu();
+        asetaTotuudetAB(0, 1, taulu);
+        assertEquals(false, A.generoi(taulu).totuus());
+    }
+
+    public void asetaTotuudetAB(int a, int b, Propositiotaulu taulu) {
         taulu.LisaaPropositio("a");
         taulu.LisaaPropositio("b");
-        taulu.getPropositioTaulu().get("a").asetaTotuus(1);
-        taulu.getPropositioTaulu().get("b").asetaTotuus(0);
-        assertEquals(false, A.generoi(taulu).totuus());
+        taulu.getPropositioTaulu().get("a").asetaTotuus(a);
+        taulu.getPropositioTaulu().get("b").asetaTotuus(b);
     }
 }

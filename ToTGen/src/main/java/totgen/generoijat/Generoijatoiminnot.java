@@ -36,7 +36,7 @@ public class Generoijatoiminnot {
 
     public static boolean komponenttiOnNegaatio(String syote) {
 
-        return (syote.length() >= 5 && syote.substring(0, 3).contentEquals("not"));
+        return ((syote.length() >= 5 && syote.substring(0, 3).contentEquals("not")) || (syote.length() >= 3 && syote.substring(0, 1).contentEquals("¬")));
 
     }
 

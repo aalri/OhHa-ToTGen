@@ -26,20 +26,21 @@ public class AlilauseNegaatiogeneroijaTest extends TestCase {
     public void testgeneroiSuljekokonaisuusTrue() {
         AlilauseNegaatiogeneroija A = new AlilauseNegaatiogeneroija("not ( a and b )");
         Propositiotaulu taulu = new Propositiotaulu();
-        taulu.LisaaPropositio("a");
-        taulu.LisaaPropositio("b");
-        taulu.getPropositioTaulu().get("a").asetaTotuus(1);
-        taulu.getPropositioTaulu().get("b").asetaTotuus(1);
+        asetaTotuudetAB(1, 1, taulu);
         assertEquals(false, A.generoi(taulu).totuus());
     }
 
     public void testgeneroiSuljekokonaisuusFalse() {
         AlilauseNegaatiogeneroija A = new AlilauseNegaatiogeneroija("not ( a and b )");
         Propositiotaulu taulu = new Propositiotaulu();
+        asetaTotuudetAB(0, 1, taulu);
+        assertEquals(true, A.generoi(taulu).totuus());
+    }
+    
+    public void asetaTotuudetAB(int a, int b,Propositiotaulu taulu){
         taulu.LisaaPropositio("a");
         taulu.LisaaPropositio("b");
-        taulu.getPropositioTaulu().get("a").asetaTotuus(0);
-        taulu.getPropositioTaulu().get("b").asetaTotuus(1);
-        assertEquals(true, A.generoi(taulu).totuus());
+        taulu.getPropositioTaulu().get("a").asetaTotuus(a);
+        taulu.getPropositioTaulu().get("b").asetaTotuus(b);
     }
 }

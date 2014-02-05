@@ -21,11 +21,11 @@ public class TyhjienSulkujenlukija implements Syntaksinlukija{
         int osoitin = 0;
         while(osoitin < syote.length()){
             if(syote.substring(osoitin, osoitin+1).contentEquals("(")){
-                if(syote.substring(osoitin, osoitin+2).contentEquals("()")){
+                if(syote.substring(osoitin).length() >= 2 && syote.substring(osoitin, osoitin+2).contentEquals("()")){
                     return false;
                 }
                 osoitin += tyhjahyppyri.hyppaaTyhja(syote.substring(osoitin+1));
-                if (syote.substring(osoitin+1, osoitin+2).contentEquals(")")){
+                if (syote.substring(osoitin).length() >= 2 && syote.substring(osoitin+1, osoitin+2).contentEquals(")")){
                     return false;
                 }
             }

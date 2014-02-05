@@ -12,21 +12,23 @@ import totgen.lauseenkomponentit.Komponentti;
 import totgen.lauseenkomponentit.Propositio;
 
 /**
+ * 
  *
  * @author alrial@cs
  */
+
+
 public class Generaattori {
 
-    private Propositiotaulu propositiot;
-
-    public Generaattori() {
-        this.propositiot = new Propositiotaulu();
+    private Propositiotaulu propositiotaulu;
+    
+    public Generaattori(Propositiotaulu propositiotaulu) {
+        this.propositiotaulu = propositiotaulu;
     }
 
-
     public Lause generoi(String syote) {
-    Alilausegeneroija generoija = new Alilausegeneroija(syote);
-    return new Lause (generoija.generoi(this.propositiot), this.propositiot);
+        Alilausegeneroija generoija = new Alilausegeneroija(syote);
+        return new Lause(generoija.generoi(this.propositiotaulu), this.propositiotaulu);
 
     }
 
