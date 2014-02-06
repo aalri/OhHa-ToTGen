@@ -1,5 +1,5 @@
 Aihe: Totuustaulu generaattori
-Luodaan ohjelma, minkä avulla voidaan muodostaa totuustaulukoita käyttäjän syöttämistä propositiologiikan kaavoista, mitä ohjelma ymmärtää.
+Luodaan ohjelma, minkä avulla voidaan muodostaa totuustaulukoita käyttäjän syöttämistä propositiologiikan kaavoista, mitä ohjelma ymmärtää. Osaa myös selvittää loogisen päätelyn oikeellisuuden.
 
 Laajennuksina mahdollisesti alikaavoihin osittelu sekä niiden totuustaulukointi, taulukoiden tallentaminen tekstitiedostoon.
 

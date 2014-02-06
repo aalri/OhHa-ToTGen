@@ -20,6 +20,12 @@ public class Propositiotaulu {
     }
     
     public Propositio lisaaPropositio(String nimi){
+        if (nimi.isEmpty()){
+            if(!this.propositiot.containsKey("")){
+            this.propositiot.put("", new Propositio());
+        }  
+        return this.propositiot.get("");
+        }
         if(!this.propositiot.containsKey(nimi)){
             this.propositiot.put(nimi, new Propositio());
         }  

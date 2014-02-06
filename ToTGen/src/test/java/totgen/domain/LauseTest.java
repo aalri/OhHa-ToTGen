@@ -112,6 +112,15 @@ public class LauseTest extends TestCase {
         assertEquals("B", lista.get(1));
         assertEquals("D", lista.get(2));
     }
+        
+        public void testgetPropositioNimetlistaTyhja() {
+        Propositio d = propositiot.lisaaPropositio("");
+        Lause lause = new Lause(new Ekvivalenssi(a, new Konjunktio(b , d)), propositiot);
+        ArrayList<String> lista = lause.getPropositioNimetlista();
+        assertEquals("", lista.get(0));
+        assertEquals("A", lista.get(1));
+        assertEquals("B", lista.get(2));
+    }
                 
     public void testLauseGetPropositiotaulu() {
 

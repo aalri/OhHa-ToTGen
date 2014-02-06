@@ -56,7 +56,7 @@ public class Generoijaluoja {
             if (syote.contentEquals("imp") || syote.contentEquals("→")) {
                 return new Implikaatio(k1, k2);
             }
-            if (syote.contentEquals("ekv") || syote.contentEquals("∧")) {
+            if (syote.contentEquals("ekv") || syote.contentEquals("↔")) {
                 return new Ekvivalenssi(k1, k2);
             }
         }

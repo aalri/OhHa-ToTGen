@@ -65,8 +65,8 @@ public class Alilausegeneroija {
         String ekaKomponenttiSyote;
 
         if (Generoijatoiminnot.lauseSisaltaaVainYhdenProposition(this.syote)) {
-            ekaKomponenttiSyote = this.syote;            
-            return propositiot.lisaaPropositio(ekaKomponenttiSyote);
+            ekaKomponenttiSyote = this.syote;  
+            return propositiot.lisaaPropositio(ekaKomponenttiSyote);            
 
         } else {
             if (Generoijatoiminnot.komponenttiOnNegaatio(this.syote)) {
@@ -80,7 +80,6 @@ public class Alilausegeneroija {
         this.syote = Generoijatoiminnot.hyppaaTyhja(this.syote);
         String omaKomponenttiSana = Generoijatoiminnot.annaTulevaSana(this.syote);
         this.syote = Generoijatoiminnot.hyppaaSana(this.syote);
-
         if (Generoijatoiminnot.komponenttiOnNegaatio(this.syote)) {
             this.syote = Generoijatoiminnot.muutaNegaatioKomponentiksiSekaPalautaMuuLause(this.syote, this.komponentit, 1, propositiot);
 

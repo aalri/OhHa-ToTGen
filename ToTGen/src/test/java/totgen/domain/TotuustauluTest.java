@@ -16,6 +16,14 @@ public class TotuustauluTest extends TestCase {
     
     public void testGeneroi(){
         Totuustaulu taulu = new Totuustaulu("A");
+        taulu.luoLause();
+        taulu.luoTotuustaulu();
+        assertEquals("A",taulu.getPropositiot()[0]);
+        assertEquals("A",taulu.getPropositiot()[1]);
         
+        assertEquals("true",taulu.getTotuudet()[0][0]);
+        assertEquals("true",taulu.getTotuudet()[0][1]);
+        assertEquals("false",taulu.getTotuudet()[1][0]);
+        assertEquals("false",taulu.getTotuudet()[1][1]);
     }
 }

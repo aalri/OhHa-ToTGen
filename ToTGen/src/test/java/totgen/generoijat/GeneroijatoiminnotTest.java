@@ -25,7 +25,7 @@ public class GeneroijatoiminnotTest extends TestCase {
         assertEquals(true, Generoijatoiminnot.kyseessaPropositio("auto ) ooh lala"));
         assertEquals(true, Generoijatoiminnot.kyseessaPropositio("A"));
         assertEquals(false, Generoijatoiminnot.kyseessaPropositio(") ooh lala"));
-        assertEquals(false, Generoijatoiminnot.kyseessaPropositio(""));
+        assertEquals(true, Generoijatoiminnot.kyseessaPropositio(""));
     }
     
     public void testkomponenttiOnNegaatio() {

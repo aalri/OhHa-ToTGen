@@ -43,7 +43,6 @@ public class Generoijatoiminnot {
         String yhdenPropositionTarkistaja = syote;
         yhdenPropositionTarkistaja = yhdenPropositionTarkistaja.substring(sanahyppyri.hyppaaTulevaSana(yhdenPropositionTarkistaja));
         yhdenPropositionTarkistaja = yhdenPropositionTarkistaja.substring(tyhjahyppyri.hyppaaTyhja(yhdenPropositionTarkistaja));
-
         return (yhdenPropositionTarkistaja.length() == 0);
     }
 
@@ -59,8 +58,7 @@ public class Generoijatoiminnot {
      */
     public static boolean kyseessaPropositio(String syote) {
         Tyhjahyppyri tyhjahyppyri = new Tyhjahyppyri();
-
-        return syote.length() >= 1 && 0 == tyhjahyppyri.hyppaaTyhja(syote) && (!syote.substring(0, 1).contentEquals(")"));
+        return (syote.length() == 0 || (syote.length() >= 1 && 0 == tyhjahyppyri.hyppaaTyhja(syote) && (!syote.substring(0, 1).contentEquals(")"))));
     }
 
     /**
@@ -169,9 +167,8 @@ public class Generoijatoiminnot {
             komponentit[paikka] = generoija2.generoi(propositiot);
 
         } else if (kyseessaPropositio(syote)) {
-            syote = hyppaaTyhja(syote);
-            propositiot.lisaaPropositio(annaTulevaSana(syote));
-            komponentit[paikka] = propositiot.getPropositioTaulu().get(annaTulevaSana(syote));
+            syote = hyppaaTyhja(syote);        
+            komponentit[paikka] = propositiot.lisaaPropositio(annaTulevaSana(syote));
             syote = hyppaaSana(syote);
         }
         return syote;

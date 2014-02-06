@@ -26,10 +26,15 @@ public class GeneroijaluojaTest extends TestCase {
         Komponentti[] komponentit = new Komponentti[2];
         komponentit[0] = new Propositio(); 
         assertEquals(Konjunktio.class, L.luo("and", komponentit).getClass());
+        assertEquals(Konjunktio.class, L.luo("∧", komponentit).getClass());
         assertEquals(Disjunktio.class, L.luo("or", komponentit).getClass());
+        assertEquals(Disjunktio.class, L.luo("∨", komponentit).getClass());
         assertEquals(Negaatio.class, L.luo("not", komponentit).getClass());
+        assertEquals(Negaatio.class, L.luo("¬", komponentit).getClass());
         assertEquals(Implikaatio.class, L.luo("imp", komponentit).getClass());
+        assertEquals(Implikaatio.class, L.luo("→", komponentit).getClass());
         assertEquals(Ekvivalenssi.class, L.luo("ekv", komponentit).getClass());
+        assertEquals(Ekvivalenssi.class, L.luo("↔", komponentit).getClass());
         assertEquals(Propositio.class, L.luo("SUPEROP", komponentit).getClass());
     }
 }

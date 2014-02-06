@@ -21,4 +21,11 @@ public class PropositiotauluTest extends TestCase {
         taulu.lisaaPropositio("Mikko");
         assertEquals(true, mikko == taulu.getPropositioTaulu().get("Mikko"));
     }
+    
+        public void testPropositiotauluEiLisaaSamallaNimellaUuttaTyhja() {
+        Propositiotaulu taulu = new Propositiotaulu();        
+        Propositio tyhja = taulu.lisaaPropositio("");
+        taulu.lisaaPropositio("");
+        assertEquals(true, tyhja == taulu.getPropositioTaulu().get(""));
+    }
 }
