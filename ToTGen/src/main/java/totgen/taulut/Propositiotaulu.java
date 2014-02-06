@@ -19,7 +19,7 @@ public class Propositiotaulu {
         this.propositiot = new HashMap<String, Propositio>();
     }
     
-    public Propositio LisaaPropositio(String nimi){
+    public Propositio lisaaPropositio(String nimi){
         if(!this.propositiot.containsKey(nimi)){
             this.propositiot.put(nimi, new Propositio());
         }  

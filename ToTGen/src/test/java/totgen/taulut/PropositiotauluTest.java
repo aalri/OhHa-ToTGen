@@ -16,9 +16,9 @@ public class PropositiotauluTest extends TestCase {
 
     public void testPropositiotauluEiLisaaSamallaNimellaUutta() {
         Propositiotaulu taulu = new Propositiotaulu();
-        taulu.LisaaPropositio("Mikko");
+        taulu.lisaaPropositio("Mikko");
         Propositio mikko = taulu.getPropositioTaulu().get("Mikko");
-        taulu.LisaaPropositio("Mikko");
+        taulu.lisaaPropositio("Mikko");
         assertEquals(true, mikko == taulu.getPropositioTaulu().get("Mikko"));
     }
 }

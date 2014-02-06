@@ -9,8 +9,27 @@ package totgen.syntaksinlukijat;
  *
  * @author alrial@cs
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * Sulkujenlukija luokka, jonka tarkoituksena on tarkistaa sulkujen oikea maara.
+ *
+ *
+ */
 public class Sulkujenlukija implements Syntaksinlukija {
 
+    
+    /**
+     * Metodi tarkistaa syotteessa olevien sulkujen maaran, 
+     * ja jos niita on tasan niin true muuten false.
+     *
+     * 
+     * @param syote Kutsujan syote
+     * @return oli tasan
+     */
     @Override
     public boolean lue(String syote) {
         int sulut = 0;
@@ -27,6 +46,9 @@ public class Sulkujenlukija implements Syntaksinlukija {
         return false;
     }
 
+    /**
+     * Metodi palauttaa virheilmoituksen.
+     */
     @Override
     public String virheilmoitus() {
         return "Virhe sulkujen määrässä. Tarkista sulut.";

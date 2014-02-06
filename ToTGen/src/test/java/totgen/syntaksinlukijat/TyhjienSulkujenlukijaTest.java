@@ -16,6 +16,7 @@ public class TyhjienSulkujenlukijaTest extends TestCase {
         public void testLuomiset() {
         TyhjienSulkujenlukija lukija = new TyhjienSulkujenlukija();
         assertEquals(true,lukija.lue("A and C ( D or F )"));
+        assertEquals(true,lukija.lue("("));
         assertEquals(false,lukija.lue("()"));
         assertEquals(false,lukija.lue("( )"));
         assertEquals(true,lukija.lue("( A )"));

@@ -12,18 +12,38 @@ package totgen.laskurit;
  */
 public class Tyhjahyppyri {
     
+   /**
+    * 
+    * 
+    * 
+    *
+    * 
+    * Tyhjahyppyri luokka, jonka metodi laskee matkan tyhjän alueen päättymiseen.
+    * 
+    */
+    
     public Tyhjahyppyri(){
         
     }
     
+  /**
+    * Metodi selvittaa kuinka monta tyhjää on matkaa seuraavaan muuhun merkkiin. 
+    * 
+    *
+    * @param   syote Kutsujan syote
+    * 
+    * @return matka palauttaa matkan tyhjien päättymiseen.
+    * 
+    */
+    
     public int hyppaaTyhja(String syote){
-        int alku = 0;
+        int matka = 0;
         if (syote.length() == 0){
             return 0;
         }
-        while (syote.length() > alku && syote.substring(alku, alku+1).contentEquals(" ")) {
-            alku++;
+        while (syote.length() > matka && syote.substring(matka, matka+1).contentEquals(" ")) {
+            matka++;
         }
-        return alku;
+        return matka;
     }
 }

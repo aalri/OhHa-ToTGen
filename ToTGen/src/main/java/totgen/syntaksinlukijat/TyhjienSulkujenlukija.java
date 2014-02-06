@@ -12,8 +12,26 @@ import totgen.laskurit.Tyhjahyppyri;
  *
  * @author alrial@cs
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * Sulkujenlukija luokka, jonka tarkoituksena on tarkistaa ettei sulkujen sisalla ole tyhjaa.
+ *
+ *
+ */
 public class TyhjienSulkujenlukija implements Syntaksinlukija{
 
+    /**
+     * Metodi tarkistaa tyhjähyppyrin avulla että sulun alun,
+     * ja tulevan lopun välissä ei ole pelkästään tyhjää.
+     *
+     * 
+     * @param syote Kutsujan syote
+     * @return ei tyhjaa
+     */
     @Override
     public boolean lue(String syote) {
         Tyhjahyppyri tyhjahyppyri = new Tyhjahyppyri();
@@ -21,9 +39,6 @@ public class TyhjienSulkujenlukija implements Syntaksinlukija{
         int osoitin = 0;
         while(osoitin < syote.length()){
             if(syote.substring(osoitin, osoitin+1).contentEquals("(")){
-                if(syote.substring(osoitin).length() >= 2 && syote.substring(osoitin, osoitin+2).contentEquals("()")){
-                    return false;
-                }
                 osoitin += tyhjahyppyri.hyppaaTyhja(syote.substring(osoitin+1));
                 if (syote.substring(osoitin).length() >= 2 && syote.substring(osoitin+1, osoitin+2).contentEquals(")")){
                     return false;
@@ -33,7 +48,10 @@ public class TyhjienSulkujenlukija implements Syntaksinlukija{
         }
         return true;
     }
-
+    
+    /**
+     * Metodi palauttaa virheilmoituksen.
+     */
     @Override
     public String virheilmoitus() {
         return "Jotkut sulut eivät sisällä mitään.";

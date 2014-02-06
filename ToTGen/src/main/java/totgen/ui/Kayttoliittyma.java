@@ -5,10 +5,6 @@
  */
 package totgen.ui;
 
-/**
- *
- * @author Riku
- */
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -28,6 +24,20 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+/**
+ *
+ * @author Riku
+ */
+/**
+ *
+ *
+ *
+ *
+ *
+ * Kayttoliittyma luokka, luo kayttoliittyman rungon.
+ *
+ *
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
@@ -126,7 +136,7 @@ public class Kayttoliittyma implements Runnable {
         
         jos.setBounds(20, 70, 30, 30);
         syotealue2.setBounds(50, 70, 300, 30);        
-        niin.setBounds(20, 130, 30, 30);
+        niin.setBounds(15, 130, 40, 30);
         syotealue3.setBounds(50, 130, 300, 30);
         voidaankoPaatellaNappi.setBounds(50, 190, 300, 30);
 

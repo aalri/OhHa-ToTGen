@@ -19,13 +19,47 @@ import totgen.taulut.Propositiotaulu;
  *
  * @author alrial@cs
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * Totuustaulu luokka, jonka tarkoituksena on tarkistaa syotteen oikeellisuus, 
+ * luoda vaihtoehdot, seka palauttaa totuustaulukko data.
+ *
+ *
+ */
 public class Totuustaulu {
 
+    /**
+     * Totuustaulun totuustaulutettava syote.
+     */
     private String syote;
+    
+    /**
+     * Totuustaulun tarkistuksessa käytettävät syntaksinlukijat.
+     */
     private ArrayList<Syntaksinlukija> syntaksinlukijat;
+    
+    /**
+     * Totuustaulun vaihtoehtojen luonnissa käyttämä propositiotaulu.
+     */
     private Propositiotaulu propositiotaulu;
+    
+    /**
+     * Totuustaulun propositiot.
+     */
     private String[] propositiot;
-    private String[][] totuudet;    
+    
+    /**
+     * Totuustaulun totuudet taulussa.
+     */
+    private String[][] totuudet;  
+    
+    /**
+     * Totuustaulun totuuksien muodostamiseen käyttämä syötteestä muodostettu komponentti-puu lause.
+     */
     private Lause lause;
 
     public Totuustaulu(String syote) {
@@ -45,6 +79,15 @@ public class Totuustaulu {
         this.syote = syote;
         this.propositiotaulu = propositiotaulu;
     }
+    
+   /**
+     * Metodi tulkitsee syötettä,ja tarkistaa sen oikeellisuuden kyselemällä siitä syntaksinlukijoilta,
+     *
+     *
+     *
+     * @return String oikeellisuus.
+     *
+     */
 
     public String tarkistaSyntaksi() {
         for (Syntaksinlukija s : this.syntaksinlukijat) {
@@ -54,6 +97,14 @@ public class Totuustaulu {
         }
         return "true";
     }
+    
+   /**
+     * Metodi käskee Generaattoria luomaan lauseen, ja asettamaan sen Totuustaulu olion lauseeksi.
+     *
+     *
+     *
+     *
+     */
 
     public void luoLause() {
 
@@ -61,46 +112,61 @@ public class Totuustaulu {
         this.lause = generaattori.generoi(this.syote);
     }
     
+   /**
+     * Metodi luo totuudet ja propositiot,
+     * ja asettaa ne olion totuudet ja propositiot muuttujiin.
+     *
+     *
+     *
+     *
+     */
+    
     public void luoTotuustaulu() {
-        ArrayList<Propositio> lista = this.lause.getPropositiolista();
+        ArrayList<String> lista = this.lause.getPropositioNimetlista();
         int[] taulu = new int[lista.size()];
         Vaihtoehtotaulu vaihtoehtotaulu = new Vaihtoehtotaulu();
         ArrayList<int[]> vaihtoehdot = luovaihtoehdot(lista.size(), taulu, vaihtoehtotaulu);
         int propositiotaulukoko = this.lause.getPropositiotaulu().keySet().size() + 1;
         this.propositiot = new String[propositiotaulukoko];
-        ArrayList<String> proposit = new ArrayList<String>(this.lause.getPropositiotaulu().keySet());
-        Collections.sort(proposit);
         int pituus = 0;
-        for (String p : proposit) {
+        for (String p : lista) {
             this.propositiot[pituus] = p;
-            System.out.print(" " + p + " | ");
             pituus++;
         }
-        System.out.print(this.syote);
         this.propositiot[pituus] = this.syote;
-        System.out.println("");
         this.totuudet = new String[vaihtoehdot.size()][vaihtoehdot.get(0).length];
         for (int i = 0; i < vaihtoehdot.size(); i++) {
-            System.out.println(this.lause.muodostaTotuusrivi(vaihtoehdot.get(i)));
             String[] rivi = this.lause.muodostaTotuusrivilista(vaihtoehdot.get(i));
             this.totuudet[i] = rivi;
         }
     }
 
-    public ArrayList<int[]> luovaihtoehdot(int pituus, int[] taulu, Vaihtoehtotaulu vaihtoehtotaulu) {
+   /**
+     * Metodi luo kaikki mahdolliset totuusvaihtoehdot, 
+     * ja asettaa ne parametrina annettuun vaihtoehtotauluun
+     *
+     *
+     *
+     *
+     * @param pituus ilmaisee vaihtoehto rivin pituutta
+     * @param vaihtoehtorivi listaa vaihtoehtorivin sisällön
+     * @param vaihtoehtotaulu listaa vaihtoehtorivit
+     * @return vaihtoehtotaulu joka siäsältää kaikki mahdolliset totuusvaihtoehdot
+     */
+    public ArrayList<int[]> luovaihtoehdot(int pituus, int[] vaihtoehtorivi, Vaihtoehtotaulu vaihtoehtotaulu) {
         if (pituus > 0) {
             for (int i = 1; i >= 0; i--) {
-                taulu[taulu.length - pituus] = i;
-                int[] uusi = new int[taulu.length];
-                for (int j = 0; j < taulu.length; j++) {
-                    uusi[j] = taulu[j];
+                vaihtoehtorivi[vaihtoehtorivi.length - pituus] = i;
+                int[] uusi = new int[vaihtoehtorivi.length];
+                for (int j = 0; j < vaihtoehtorivi.length; j++) {
+                    uusi[j] = vaihtoehtorivi[j];
                 }
                 luovaihtoehdot(pituus - 1, uusi, vaihtoehtotaulu);
             }
         } else {
-            int[] uusi = new int[taulu.length + 1];
-            for (int i = 0; i < taulu.length; i++) {
-                uusi[i] = taulu[i];
+            int[] uusi = new int[vaihtoehtorivi.length + 1];
+            for (int i = 0; i < vaihtoehtorivi.length; i++) {
+                uusi[i] = vaihtoehtorivi[i];
             }
             vaihtoehtotaulu.getTaulu().add(uusi);
         }

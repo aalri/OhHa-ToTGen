@@ -9,9 +9,26 @@ package totgen.lauseenkomponentit;
  *
  * @author alrial@cs
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * Konjunktio luokka, jonka tarkoituksena on simuloida logiikan konjunktiota.
+ *
+ *
+ */
 public class Konjunktio implements Komponentti {
 
+    /**
+     * konjunktiomerkkiä edeltävä komponentti
+     */
     private Komponentti k1;
+
+    /**
+     * konjunktiomerkin jälkeen tuleva komponentti
+     */
     private Komponentti k2;
 
     public Konjunktio(Komponentti k1, Komponentti k2) {
@@ -19,6 +36,11 @@ public class Konjunktio implements Komponentti {
         this.k2 = k2;
     }
 
+    /**
+     * Metodi palauttaa logiikan mukaisen totuuden komponenteista.
+     *
+     * @return konjunktion totuus
+     */
     public boolean totuus() {
         return k1.totuus() == true && k2.totuus() == true;
     }

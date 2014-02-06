@@ -9,4 +9,6 @@ Toiminnot:
 
 - Generoi Totuustaulu
   * Onnistuu, jos syöte on ohjelman syntaksin mukainen.
-
+  
+- Paattelyn tarkistus
+  * Onnistuu, jos syötteet ovat ohjelman syntaksin mukaiset.

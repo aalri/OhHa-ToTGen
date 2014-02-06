@@ -15,6 +15,16 @@ import javax.swing.JTextField;
  *
  * @author Riku
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * LisaaMerkki luokka, jonka tarkoituksena on napinpainalluksesta lisata parametrina annettu merkki ennaltapäätettyyn syotealueeseen 
+ *
+ *
+ */
 public class LisaaMerkki implements ActionListener {
     private JTextField syoteAlue;
     private String merkki;
@@ -28,6 +38,5 @@ public class LisaaMerkki implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         this.syoteAlue.setText(this.syoteAlue.getText() + this.merkki);
-        //this.syoteAlue.getCaretPosition();
     }
 }

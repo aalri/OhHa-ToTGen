@@ -12,9 +12,27 @@ import totgen.taulut.Propositiotaulu;
  *
  * @author alrial@cs
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * AlilauseNegaatiogeneroija luokka, jonka metodi tulkitsee
+ * AlilauseNegaatiogeneroija oliolle annettua syotettä neegatiossa käytetyn
+ * logiikan mukaan.
+ *
+ *
+ */
 public class AlilauseNegaatiogeneroija {
 
+    /**
+     * AlilauseNegaatiogeneroijan tulkittava syote
+     */
     private String syote;
+    /**
+     * AlilauseNegaatiogenroijan liitettavat komponentit
+     */
     private Komponentti[] komponentit;
 
     public AlilauseNegaatiogeneroija(String syote) {
@@ -22,10 +40,19 @@ public class AlilauseNegaatiogeneroija {
         this.komponentit = new Komponentti[1];
     }
 
+    /**
+     * Metodi tulkitsee syötettä,ja kutsuu toista metodia luomaan syötteestä
+     * sille kuuluvan alikomponentin. Sitten metodi kutsuu Generoijaluojaa
+     * luomaan oman negaatio-komponenttinsa ja palauttaa sen.
+     *
+     *
+     * @param propositiot
+     *
+     * @return oma negaatiopaakomponentti.
+     *
+     */
     public Komponentti generoi(Propositiotaulu propositiot) {
-        
-        
-        
+
         String omaKomponenttiSana = Generoijatoiminnot.annaTulevaSana(this.syote);
         this.syote = Generoijatoiminnot.hyppaaSana(this.syote);
         this.syote = Generoijatoiminnot.hyppaaTyhja(this.syote);
@@ -34,16 +61,15 @@ public class AlilauseNegaatiogeneroija {
             this.syote = Generoijatoiminnot.annaSulkeidenSisainenAlue(this.syote);
             Alilausegeneroija generoija1 = new Alilausegeneroija(this.syote);
             this.komponentit[0] = generoija1.generoi(propositiot);
-        }else{
-        this.syote = Generoijatoiminnot.annaTulevaSana(this.syote);
-        Alilausegeneroija generoija1 = new Alilausegeneroija(this.syote);
-        this.komponentit[0] = generoija1.generoi(propositiot);
-        
+        } else {
+            this.syote = Generoijatoiminnot.annaTulevaSana(this.syote);
+            Alilausegeneroija generoija1 = new Alilausegeneroija(this.syote);
+            this.komponentit[0] = generoija1.generoi(propositiot);
+
         }
-        
+
         Generoijaluoja generoijaluoja = new Generoijaluoja();
         Komponentti komponentti = generoijaluoja.luo(omaKomponenttiSana, this.komponentit);
-        
 
         return komponentti;
     }

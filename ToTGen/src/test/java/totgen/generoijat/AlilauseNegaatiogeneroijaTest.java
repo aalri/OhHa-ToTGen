@@ -18,7 +18,7 @@ public class AlilauseNegaatiogeneroijaTest extends TestCase {
     public void testgeneroiYksipropositio() {
         AlilauseNegaatiogeneroija A = new AlilauseNegaatiogeneroija("not a");
         Propositiotaulu taulu = new Propositiotaulu();
-        taulu.LisaaPropositio("a");
+        taulu.lisaaPropositio("a");
         taulu.getPropositioTaulu().get("a").asetaTotuus(1);
         assertEquals(false, A.generoi(taulu).totuus());
     }
@@ -38,8 +38,8 @@ public class AlilauseNegaatiogeneroijaTest extends TestCase {
     }
     
     public void asetaTotuudetAB(int a, int b,Propositiotaulu taulu){
-        taulu.LisaaPropositio("a");
-        taulu.LisaaPropositio("b");
+        taulu.lisaaPropositio("a");
+        taulu.lisaaPropositio("b");
         taulu.getPropositioTaulu().get("a").asetaTotuus(a);
         taulu.getPropositioTaulu().get("b").asetaTotuus(b);
     }

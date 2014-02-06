@@ -21,8 +21,8 @@ import totgen.lauseenkomponentit.Propositio;
 public class LauseTest extends TestCase {
 
     Propositiotaulu propositiot = new Propositiotaulu();
-    Propositio a = propositiot.LisaaPropositio("A");
-    Propositio b = propositiot.LisaaPropositio("B");
+    Propositio a = propositiot.lisaaPropositio("A");
+    Propositio b = propositiot.lisaaPropositio("B");
     int[] totuusarvot;
 
     public void testLauseTotuudetAjaB() {
@@ -77,7 +77,42 @@ public class LauseTest extends TestCase {
         totuusarvot = new int[]{0, 0};
         assertEquals("" + false + " " + false + " " + true, lause.muodostaTotuusrivi(totuusarvot));
     }
-
+    
+    public void testLauseListaTotuudetAjossB() {
+        
+        Lause lause = new Lause(new Ekvivalenssi(a, b), propositiot);
+        totuusarvot = new int[]{1, 1, 0};
+        assertEquals("true", lause.muodostaTotuusrivilista(totuusarvot)[2]);
+        totuusarvot = new int[]{1, 0, 0};
+        assertEquals("false", lause.muodostaTotuusrivilista(totuusarvot)[2]);
+        totuusarvot = new int[]{0, 1, 0};
+        assertEquals("false", lause.muodostaTotuusrivilista(totuusarvot)[2]);
+        totuusarvot = new int[]{0, 0, 0};
+        assertEquals("true", lause.muodostaTotuusrivilista(totuusarvot)[2]);
+    }
+    
+        public void testgetPropositiolista() {
+        Propositio d = propositiot.lisaaPropositio("D");
+        Lause lause = new Lause(new Ekvivalenssi(a, new Konjunktio(b , d)), propositiot);
+        totuusarvot = new int[]{1, 1, 1, 1};
+        assertEquals("true", lause.muodostaTotuusrivilista(totuusarvot)[3]);
+        totuusarvot = new int[]{1, 0, 0, 0};
+        assertEquals("false", lause.muodostaTotuusrivilista(totuusarvot)[3]);
+        totuusarvot = new int[]{0, 1, 0, 0};
+        assertEquals("true", lause.muodostaTotuusrivilista(totuusarvot)[3]);
+        totuusarvot = new int[]{0, 1, 1, 0};
+        assertEquals("false", lause.muodostaTotuusrivilista(totuusarvot)[3]);
+    }
+        
+        public void testgetPropositioNimetlista() {
+        Propositio d = propositiot.lisaaPropositio("D");
+        Lause lause = new Lause(new Ekvivalenssi(a, new Konjunktio(b , d)), propositiot);
+        ArrayList<String> lista = lause.getPropositioNimetlista();
+        assertEquals("A", lista.get(0));
+        assertEquals("B", lista.get(1));
+        assertEquals("D", lista.get(2));
+    }
+                
     public void testLauseGetPropositiotaulu() {
 
         Lause lause = new Lause(new Ekvivalenssi(a, b), propositiot);

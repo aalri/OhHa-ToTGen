@@ -33,6 +33,9 @@ public class GeneroijatoiminnotTest extends TestCase {
         assertEquals(true, Generoijatoiminnot.komponenttiOnNegaatio("not A"));
         assertEquals(false, Generoijatoiminnot.komponenttiOnNegaatio("auto"));
         assertEquals(false, Generoijatoiminnot.komponenttiOnNegaatio("no"));
+        assertEquals(true, Generoijatoiminnot.komponenttiOnNegaatio("¬ B"));
+        assertEquals(false, Generoijatoiminnot.komponenttiOnNegaatio("¬B"));
+        assertEquals(false, Generoijatoiminnot.komponenttiOnNegaatio("¬"));
     }
     
     public void testkomponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta() {

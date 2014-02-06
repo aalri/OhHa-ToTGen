@@ -9,14 +9,32 @@ package totgen.lauseenkomponentit;
  *
  * @author alrial@cs
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * Propositio luokka, jonka tarkoituksena on simuloida logiikan propositiota.
+ *
+ *
+ */
 public class Propositio implements Komponentti {
 
+    /**
+     * proposition totuus
+     */
     private boolean totuus;
 
     public Propositio() {
 
     }
 
+    /**
+     * Metodi asettaa proposition totuuden totuusarvon mukaiseksi.
+     *
+     * @param i totuusarvo
+     */
     public void asetaTotuus(int i) {
         if (i == 1) {
             this.totuus = true;
@@ -25,6 +43,12 @@ public class Propositio implements Komponentti {
         }
     }
 
+    /**
+     * Metodi palauttaa logiikan mukaisen totuuden komponentista.
+     *
+     * @return proposition totuus
+     */
+    @Override
     public boolean totuus() {
         return this.totuus;
     }

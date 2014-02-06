@@ -12,10 +12,11 @@ import junit.framework.TestCase;
  *
  * @author alrial@cs
  */
-public class TyhjienSulkuvalienlukijaTest extends TestCase {
+public class TyhjienSulkuvalienLukijaTest extends TestCase {
         public void testLuomiset() {
         TyhjienSulkuvalienLukija lukija = new TyhjienSulkuvalienLukija();
         assertEquals(true,lukija.lue("A and C ( D or F )"));
+        assertEquals(true,lukija.lue(")"));
         assertEquals(false,lukija.lue(")("));
         assertEquals(false,lukija.lue(") ("));
         assertEquals(true,lukija.lue(") A ("));

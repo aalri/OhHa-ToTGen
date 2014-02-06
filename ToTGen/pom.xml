@@ -59,8 +59,13 @@
                         <param>totgen.lauseenkomponentit.Propositio</param>
                         <param>totgen.taulut.Propositiotaulu</param>
                         <param>totgen.taulut.Vaihtoehtotaulu</param>    
-                        <param>totgen.syntaksinlukijat.Sulkujenlukija</param>    
-                        <param>totgen.domain.Lause</param>                    
+                        <param>totgen.syntaksinlukijat.Sulkujenlukija</param>  
+                        <param>totgen.syntaksinlukijat.TyhjienSulkujenlukija</param>  
+                        <param>totgen.syntaksinlukijat.TyhjienSulkuvalienLukija</param>  
+                        <param>totgen.domain.Generaattori</param>   
+                        <param>totgen.domain.Lause</param>     
+                        <param>totgen.domain.PaattelynTarkistaja</param>     
+                        <param>totgen.domain.Totuustaulu</param>             
                     </targetClasses>
                     <targetTests>
                         <param>totgen.generoijat.AlilausegeneroijaTest</param>
@@ -78,11 +83,21 @@
                         <param>totgen.lauseenkomponentit.PropositioTest</param>  
                         <param>totgen.taulut.PropositiotauluTest</param>
                         <param>totgen.taulut.VaihtoehtotauluTest</param>
-                        <param>totgen.syntaksinlukijat.SulkujenlukijaTest</param>    
-                        <param>totgen.domain.LauseTest</param>     
+                        <param>totgen.syntaksinlukijat.SulkujenlukijaTest</param>  
+                        <param>totgen.syntaksinlukijat.TyhjienSulkujenlukijaTest</param>  
+                        <param>totgen.syntaksinlukijat.TyhjienSulkuvalienLukijaTest</param>    
+                        <param>totgen.domain.GeneraattoriTest</param>   
+                        <param>totgen.domain.LauseTest</param>    
+                        <param>totgen.domain.PaattelynTarkistajaTest</param> 
+                        <param>totgen.domain.TotuustauluTest</param>   
                     </targetTests>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+            </plugin> 
         </plugins>
     </build>
 </project>

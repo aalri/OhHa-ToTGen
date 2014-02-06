@@ -7,18 +7,12 @@ package totgen.ui;
 
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JTabbedPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import totgen.domain.Totuustaulu;
@@ -26,6 +20,17 @@ import totgen.domain.Totuustaulu;
 /**
  *
  * @author Riku
+ */
+/**
+ *
+ *
+ *
+ *
+ *
+ * GeneroiTotuustaulu luokka, jonka tarkoituksena napin painalluksesta on luoda Totuustaulu olio syotealueessa olevilla syotteilla,
+ * ja muokata kayttoliittymaa kyseisen olion palautusten mukaan.
+ *
+ *
  */
 public class GeneroiTotuustaulu implements ActionListener {
 

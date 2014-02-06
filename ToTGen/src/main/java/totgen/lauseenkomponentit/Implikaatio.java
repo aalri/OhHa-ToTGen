@@ -10,9 +10,26 @@ package totgen.lauseenkomponentit;
  *
  * @author alrial@cs
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * Implikaatio luokka, jonka tarkoituksena on simuloida logiikan implikaatiota.
+ *
+ *
+ */
 public class Implikaatio implements Komponentti {
 
+    /**
+     * implikaatiomerkkiä edeltävä komponentti
+     */
     private Komponentti k1;
+    
+    /**
+     * implikaatiomerkin jälkeen tuleva komponentti
+     */
     private Komponentti k2;
 
     public Implikaatio (Komponentti k1, Komponentti k2) {
@@ -20,6 +37,12 @@ public class Implikaatio implements Komponentti {
         this.k2 = k2;
     }
 
+    /**
+     * Metodi palauttaa logiikan mukaisen totuuden komponenteista.
+     *
+     * @return implikaation totuus
+     */
+    
     @Override
     public boolean totuus() {
         return (k1.totuus() == true && k2.totuus() == true) || k1.totuus() == false;

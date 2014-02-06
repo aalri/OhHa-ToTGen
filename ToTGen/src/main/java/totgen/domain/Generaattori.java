@@ -12,20 +12,37 @@ import totgen.lauseenkomponentit.Komponentti;
 import totgen.lauseenkomponentit.Propositio;
 
 /**
- * 
+ *
  *
  * @author alrial@cs
  */
-
-
+/**
+ *
+ *
+ *
+ *
+ *
+ * Generaattori luokka, jonka tarkoituksena on toimia alustavien asetusten
+ * antajana lauseen generoimiselle.
+ *
+ *
+ */
 public class Generaattori {
 
+    /**
+     * alustuksessa käytettävä propositiotaulu
+     */
     private Propositiotaulu propositiotaulu;
-    
+
     public Generaattori(Propositiotaulu propositiotaulu) {
         this.propositiotaulu = propositiotaulu;
     }
 
+    /**
+     * Metodi luo Alilausegeneroijan, ja antaa sille alustavat asetukset
+     * ja palauttaa lauseen joka, koostuu alustavien asetusten luomuksesta sekä propositiotaulusta.
+     *
+     */
     public Lause generoi(String syote) {
         Alilausegeneroija generoija = new Alilausegeneroija(syote);
         return new Lause(generoija.generoi(this.propositiotaulu), this.propositiotaulu);

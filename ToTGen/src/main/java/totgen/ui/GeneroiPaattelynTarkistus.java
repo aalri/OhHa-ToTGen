@@ -20,6 +20,17 @@ import totgen.domain.PaattelynTarkistaja;
  *
  * @author Riku
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * GeneroiPaattelynTarkistus luokka, jonka tarkoituksena napin painalluksesta on luoda PaattelynTarkistus olio syotealueissa olevilla syotteilla,
+ * ja muokata kayttoliittymaa kyseisen olion palautusten mukaan.
+ *
+ *
+ */
 public class GeneroiPaattelynTarkistus implements ActionListener {
 
     private JTextField syoteAlue1;
@@ -64,7 +75,7 @@ public class GeneroiPaattelynTarkistus implements ActionListener {
                 this.tulostealue = new JLabel("<html><body>Spock: That is illogical, Ensign. Odors cannot travel<br>through the vacuum of space. (false)</body></html>");
             }
             this.container.add(this.tulostealue);
-            this.tulostealue.setBounds(50, 220, 300, 70);
+            this.tulostealue.setBounds(50, 220, 380, 100);
             
         } else {
             if (!syntaksi1.contentEquals("true")) {

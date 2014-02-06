@@ -12,6 +12,16 @@ import totgen.taulut.Propositiotaulu;
  *
  * @author Riku
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * PaattelynTarkistaja luokka, jonka tarkoituksena on selvittää päättelyn oikeellisuus.
+ *
+ *
+ */
 public class PaattelynTarkistaja {
     private String[][] totuudet1;
     private String[][] totuudet2;
@@ -32,6 +42,13 @@ public class PaattelynTarkistaja {
         return this.totuustaulu2.tarkistaSyntaksi();
     }
     
+    /**
+     * Metodi kaskee totuustaulujaan luomaan sisältönsä.
+     * Se myös pyytaa molemmilta totuustauluilta niiden totuudet,
+     * ja asettaa ne luokan olion omiin totuustaulu muuttujiin.
+     *
+     */
+    
     public void Generoi(){
         this.totuustaulu1.luoLause();
         this.totuustaulu2.luoLause();
@@ -40,6 +57,16 @@ public class PaattelynTarkistaja {
         this.totuudet1 = this.totuustaulu1.getTotuudet();
         this.totuudet2 = this.totuustaulu2.getTotuudet();
     }
+    
+    /**
+     * Metodi selvittää voidaanko paatella ensimmaisen totuustaulun syoteesta 
+     * toisen totuustaulun syote tarkastamalla molempien totuustaulujen
+     * lauseen paakomponentien tuloksista kaikilla vaihtoehdoilla päteekö implikaatio,
+     *
+     *
+     * @return boolean voidaanko paatella.
+     *
+     */
     
     public boolean voidaanPaatella(){
         

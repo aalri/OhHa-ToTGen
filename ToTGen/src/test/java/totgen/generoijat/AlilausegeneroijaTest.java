@@ -71,8 +71,8 @@ public class AlilausegeneroijaTest extends TestCase {
     }
 
     public void asetaTotuudetAB(int a, int b, Propositiotaulu taulu) {
-        taulu.LisaaPropositio("a");
-        taulu.LisaaPropositio("b");
+        taulu.lisaaPropositio("a");
+        taulu.lisaaPropositio("b");
         taulu.getPropositioTaulu().get("a").asetaTotuus(a);
         taulu.getPropositioTaulu().get("b").asetaTotuus(b);
     }
