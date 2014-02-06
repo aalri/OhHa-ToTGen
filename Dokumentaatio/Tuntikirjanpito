@@ -24,3 +24,6 @@ Vähintään päivämäärä, käytetty aika ja ajankäytön kohde
 5. helmikuuta, 6h Luotu testit luokille PaattelynTarkistaja, Generaattori, Totuustaulu ja TyhjienSulkuvalienLukija. 
 				  Tehty Javadocseja kaikille luokille (Logiikkaan luokat ja metodit, muuhun luokat).
 				  Luotu kaksi sekvenssikaaviota, toinen generoitotuustaulu syntaksi virheellä, ja toinen onnistuneena.
+
+
+6.helmikuuta, 1h Muokattu testejä Totuustaulu ja Propositiotaulu. Muokattu luokkaa Propositiotaulu. Muokattu Aiheenmäärittelyä ja Luokkakaaviota.
