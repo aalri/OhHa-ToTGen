@@ -24,7 +24,7 @@ public class PaattelynTarkistajaTest extends TestCase {
     
     public void testPaatellaB() {
         PaattelynTarkistaja tarkistaja = new PaattelynTarkistaja("A)", "A()");
-        assertEquals("Virhe sulkujen määrässä. Tarkista sulut.",tarkistaja.tarkistaSyntaksi1());
+        assertEquals("Virhe suluissa/niiden määrässä. Tarkista sulut.",tarkistaja.tarkistaSyntaksi1());
         assertEquals("Jotkut sulut eivät sisällä mitään.",tarkistaja.tarkistaSyntaksi2());
     }
     

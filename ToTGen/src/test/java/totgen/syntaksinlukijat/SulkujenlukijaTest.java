@@ -16,7 +16,8 @@ public class SulkujenlukijaTest extends TestCase {
     public void testLuomiset() {
         Sulkujenlukija lukija = new Sulkujenlukija();
         assertEquals(true,lukija.lue("A and C ( D or F )"));
-        assertEquals(false,lukija.lue("A and C ( D or F ))"));
-        assertEquals("Virhe sulkujen määrässä. Tarkista sulut.",lukija.virheilmoitus());
+        assertEquals(false,lukija.lue("A and C ( D or F )))"));
+        assertEquals(false,lukija.lue(") A ("));
+        assertEquals("Virhe suluissa/niiden määrässä. Tarkista sulut.",lukija.virheilmoitus());
     }
 }

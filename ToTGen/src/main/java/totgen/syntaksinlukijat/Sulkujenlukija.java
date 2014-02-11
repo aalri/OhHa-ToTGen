@@ -39,6 +39,9 @@ public class Sulkujenlukija implements Syntaksinlukija {
             } else if (syote.substring(i, i + 1).contentEquals(")")) {
                 sulut--;
             }
+            if (sulut < 0){
+                return false;
+            }
         }
         if (sulut == 0) {
             return true;
@@ -51,7 +54,7 @@ public class Sulkujenlukija implements Syntaksinlukija {
      */
     @Override
     public String virheilmoitus() {
-        return "Virhe sulkujen määrässä. Tarkista sulut.";
+        return "Virhe suluissa/niiden määrässä. Tarkista sulut.";
     }
 
 }

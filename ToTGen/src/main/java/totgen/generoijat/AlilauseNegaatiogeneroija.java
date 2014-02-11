@@ -56,6 +56,7 @@ public class AlilauseNegaatiogeneroija {
         String omaKomponenttiSana = Generoijatoiminnot.annaTulevaSana(this.syote);
         this.syote = Generoijatoiminnot.hyppaaSana(this.syote);
         this.syote = Generoijatoiminnot.hyppaaTyhja(this.syote);
+        
         if (Generoijatoiminnot.komponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta(this.syote)) {
             this.syote = Generoijatoiminnot.hyppaaYksi(this.syote);
             this.syote = Generoijatoiminnot.annaSulkeidenSisainenAlue(this.syote);
