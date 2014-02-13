@@ -17,6 +17,7 @@ public class SulkujenlukijaTest extends TestCase {
         Sulkujenlukija lukija = new Sulkujenlukija();
         assertEquals(true,lukija.lue("A and C ( D or F )"));
         assertEquals(false,lukija.lue("A and C ( D or F )))"));
+        assertEquals(false,lukija.lue("(A and C ( D or F )"));
         assertEquals(false,lukija.lue(") A ("));
         assertEquals("Virhe suluissa/niiden määrässä. Tarkista sulut.",lukija.virheilmoitus());
     }

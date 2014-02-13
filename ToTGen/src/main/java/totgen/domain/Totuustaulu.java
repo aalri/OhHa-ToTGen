@@ -125,7 +125,7 @@ public class Totuustaulu {
         ArrayList<String> lista = this.lause.getPropositioNimetlista();
         int[] taulu = new int[lista.size()];
         Vaihtoehtotaulu vaihtoehtotaulu = new Vaihtoehtotaulu();
-        ArrayList<int[]> vaihtoehdot = luovaihtoehdot(lista.size(), taulu, vaihtoehtotaulu);
+        ArrayList<int[]> vaihtoehdot = luoVaihtoehdot(lista.size(), taulu, vaihtoehtotaulu);
         int propositiotaulukoko = this.lause.getPropositiotaulu().keySet().size() + 1;
         this.propositiot = new String[propositiotaulukoko];
         int pituus = 0;
@@ -151,9 +151,9 @@ public class Totuustaulu {
      * @param pituus ilmaisee vaihtoehto rivin pituutta
      * @param vaihtoehtorivi listaa vaihtoehtorivin sisällön
      * @param vaihtoehtotaulu listaa vaihtoehtorivit
-     * @return vaihtoehtotaulu joka siäsältää kaikki mahdolliset totuusvaihtoehdot
+     * @return vaihtoehtotaulu joka sisältää kaikki mahdolliset totuusvaihtoehdot
      */
-    public ArrayList<int[]> luovaihtoehdot(int pituus, int[] vaihtoehtorivi, Vaihtoehtotaulu vaihtoehtotaulu) {
+    public ArrayList<int[]> luoVaihtoehdot(int pituus, int[] vaihtoehtorivi, Vaihtoehtotaulu vaihtoehtotaulu) {
         if (pituus > 0) {
             for (int i = 1; i >= 0; i--) {
                 vaihtoehtorivi[vaihtoehtorivi.length - pituus] = i;
@@ -161,7 +161,7 @@ public class Totuustaulu {
                 for (int j = 0; j < vaihtoehtorivi.length; j++) {
                     uusi[j] = vaihtoehtorivi[j];
                 }
-                luovaihtoehdot(pituus - 1, uusi, vaihtoehtotaulu);
+                luoVaihtoehdot(pituus - 1, uusi, vaihtoehtotaulu);
             }
         } else {
             int[] uusi = new int[vaihtoehtorivi.length + 1];

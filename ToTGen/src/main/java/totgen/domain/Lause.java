@@ -102,7 +102,6 @@ public class Lause {
      * @return totuusrivi lista annetuilla arvoilla
      */
     public String[] muodostaTotuusrivilista(int[] totuusarvot) {
-        String rivi = "";
         String[] lista = new String[totuusarvot.length];
         ArrayList<Propositio> pro = this.getPropositiolista();
         for (int i = 0; i < pro.size(); i++) {

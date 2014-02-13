@@ -55,19 +55,8 @@ public class AlilauseNegaatiogeneroija {
 
         String omaKomponenttiSana = Generoijatoiminnot.annaTulevaSana(this.syote);
         this.syote = Generoijatoiminnot.hyppaaSana(this.syote);
-        this.syote = Generoijatoiminnot.hyppaaTyhja(this.syote);
         
-        if (Generoijatoiminnot.komponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta(this.syote)) {
-            this.syote = Generoijatoiminnot.hyppaaYksi(this.syote);
-            this.syote = Generoijatoiminnot.annaSulkeidenSisainenAlue(this.syote);
-            Alilausegeneroija generoija1 = new Alilausegeneroija(this.syote);
-            this.komponentit[0] = generoija1.generoi(propositiot);
-        } else {
-            this.syote = Generoijatoiminnot.annaTulevaSana(this.syote);
-            Alilausegeneroija generoija1 = new Alilausegeneroija(this.syote);
-            this.komponentit[0] = generoija1.generoi(propositiot);
-
-        }
+        Generoijatoiminnot.muutaKomponentiksiSekaPalautaMuuLause(this.syote, this.komponentit, 0, propositiot);
 
         Generoijaluoja generoijaluoja = new Generoijaluoja();
         Komponentti komponentti = generoijaluoja.luo(omaKomponenttiSana, this.komponentit);

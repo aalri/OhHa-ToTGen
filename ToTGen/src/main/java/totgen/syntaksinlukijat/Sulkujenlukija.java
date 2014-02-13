@@ -24,7 +24,8 @@ public class Sulkujenlukija implements Syntaksinlukija {
     
     /**
      * Metodi tarkistaa syotteessa olevien sulkujen maaran, 
-     * ja jos niita on tasan niin true muuten false.
+     * ja jos niita on tasan niin true muuten false. 
+     * Metodi tarkistaa myös samalla, että ")" sulkeita ei ole milloinkaan enemmän kuin "(" sulkeita syötettä luettaessa.
      *
      * 
      * @param syote Kutsujan syote

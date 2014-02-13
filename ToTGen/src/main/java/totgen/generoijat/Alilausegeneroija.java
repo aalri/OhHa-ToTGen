@@ -35,7 +35,7 @@ public class Alilausegeneroija {
      */
     private String syote;
     /**
-     * Alilausegenroijan liitettavat komponentit 
+     * Alilausegenroijan liitettavat komponentit
      */
     private Komponentti[] komponentit;
 
@@ -44,20 +44,21 @@ public class Alilausegeneroija {
         this.komponentit = new Komponentti[2];
 
     }
-    
-   /**
-     * Metodi tulkitsee syötettä,ja kutsuu muita metodeja luomaan syötteestä sille kuuluvat alikomponentit.
-     * Sitten metodi kutsuu Generoijaluojaa luomaan oman komponenttinsa ja palauttaa sen.
-     * 
-     * Mutta jos syote koostuu vain yhdestä propositiosta, se yrittää lisätä sen parametrina annettuun propositiotauluun,
-     * ja kutsuu propositiotaululta komponenttia ja palauttaa sen.
+
+    /**
+     * Metodi tulkitsee syötettä,ja kutsuu muita metodeja luomaan syötteestä
+     * sille kuuluvat alikomponentit. Sitten metodi kutsuu Generoijaluojaa
+     * luomaan oman komponenttinsa ja palauttaa sen.
+     *
+     * Mutta jos syote koostuu vain yhdestä propositiosta, se yrittää lisätä sen
+     * parametrina annettuun propositiotauluun, ja kutsuu propositiotaululta
+     * komponenttia ja palauttaa sen.
      *
      * @param propositiot
      *
      * @return oma paakomponentti.
      *
      */
-
     public Komponentti generoi(Propositiotaulu propositiot) {
 
         this.syote = Generoijatoiminnot.hyppaaTyhja(this.syote);
@@ -65,9 +66,13 @@ public class Alilausegeneroija {
         String ekaKomponenttiSyote;
 
         if (Generoijatoiminnot.lauseSisaltaaVainYhdenProposition(this.syote)) {
-            ekaKomponenttiSyote = this.syote;  
-            return propositiot.lisaaPropositio(ekaKomponenttiSyote);            
+            ekaKomponenttiSyote = this.syote;
+            return propositiot.lisaaPropositio(ekaKomponenttiSyote);
 
+        } else if (Generoijatoiminnot.lauseSisaltaaVainYhdenNegaatioKomponentin(this.syote)) {
+            return Generoijatoiminnot.palautaNegaatioKomponentti(syote, propositiot);
+        } else if (Generoijatoiminnot.lauseSisaltaaVainYhdenSuljeKomponentin(this.syote)) {
+            return Generoijatoiminnot.palautaKomponentti(syote, propositiot);
         } else {
             if (Generoijatoiminnot.komponenttiOnNegaatio(this.syote)) {
                 this.syote = Generoijatoiminnot.muutaNegaatioKomponentiksiSekaPalautaMuuLause(this.syote, this.komponentit, 0, propositiot);

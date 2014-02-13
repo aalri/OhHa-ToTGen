@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.002" errors="0" skipped="0" tests="12" name="totgen.generoijat.GeneroijatoiminnotTest">
+<testsuite failures="0" time="0.001" errors="0" skipped="0" tests="14" name="totgen.generoijat.GeneroijatoiminnotTest">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/media/KINGSTON/Viimeisempi/OhHa-ToTGen/ToTGen"/>
+    <property name="user.dir" value="/home/ad/fshome1/u1/a/alrial/Viimeisempi/OhHa-ToTGen/ToTGen"/>
     <property name="java.runtime.version" value="1.7.0_51-b00"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/endorsed"/>
@@ -25,6 +25,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
+    <property name="net.sourceforge.cobertura.datafile" value="/home/alrial/Z-drive/Viimeisempi/OhHa-ToTGen/ToTGen/target/cobertura/cobertura.ser"/>
     <property name="maven.ext.class.path" value="/usr/share/netbeans/7.4/java/maven-nblib/netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="/usr/share/netbeans/7.4/java/maven/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -33,17 +34,17 @@
     <property name="java.class.version" value="51.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="3.8.0-35-generic"/>
-    <property name="user.home" value="/home/tktl-csfs/fs/home/alrial"/>
+    <property name="user.home" value="/home/alrial"/>
     <property name="user.timezone" value="Europe/Helsinki"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
     <property name="java.specification.version" value="1.7"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="user.name" value="alrial@cs"/>
+    <property name="user.name" value="alrial"/>
     <property name="java.class.path" value="/usr/share/netbeans/7.4/java/maven/boot/plexus-classworlds-2.4.jar"/>
     <property name="java.vm.specification.version" value="1.7"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/usr/lib/jvm/java-7-openjdk-amd64/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/usr/share/netbeans/7.4/java/maven-nblib/netbeans-eventspy.jar test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -f /home/alrial/Z-drive/Viimeisempi/OhHa-ToTGen/ToTGen/pom.xml -Dmaven.ext.class.path=/usr/share/netbeans/7.4/java/maven-nblib/netbeans-eventspy.jar cobertura:cobertura"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="user.language.format" value="fi"/>
@@ -59,9 +60,14 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="project.build.outputDirectory" value="/home/alrial/Z-drive/Viimeisempi/OhHa-ToTGen/ToTGen/target/generated-classes/cobertura"/>
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testlauseSisaltaaVainYhdenProposition"/>
+  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testkyseessaPropositio"/>
+  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testkomponenttiOnNegaatio"/>
+  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testkomponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testmuutaNegaatioKomponentiksiSekaPalautaMuuLause"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testmuutaKomponentiksiSekaPalautaMuuLause"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testhyppaaSana"/>
@@ -70,8 +76,6 @@
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testannaSulkeidenSisainenAlue"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testhyppaaSulkeet"/>
   <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testhyppaaYksi"/>
-  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testlauseSisaltaaVainYhdenProposition"/>
-  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testkyseessaPropositio"/>
-  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testkomponenttiOnNegaatio"/>
-  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testkomponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta"/>
+  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testlauseSisaltaaVainYhdenNegaatioKomponentin"/>
+  <testcase time="0" classname="totgen.generoijat.GeneroijatoiminnotTest" name="testlauseSisaltaaVainYhdenSuljeKomponentin"/>
 </testsuite>

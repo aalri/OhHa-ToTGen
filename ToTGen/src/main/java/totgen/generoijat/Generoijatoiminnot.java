@@ -21,14 +21,14 @@ import totgen.taulut.Propositiotaulu;
  *
  *
  *
- * Generoijatoiminnot luokka, joka sisältää metodeja pääosin generoijat
- * pakkauksen luokkien käyttöön.
+ * Generoijatoiminnot luokka, joka sisältää staattisia metodeja pääosin
+ * generoijat pakkauksen luokkien käyttöön.
  *
  */
 public class Generoijatoiminnot {
 
     /**
-     * Metodi selvittaa että syote sisaltaa vain tyhjaa merkkijonon ja tyhjaa,
+     * Metodi selvittaa että syote sisaltaa vain tyhjaa, merkkijonon ja tyhjaa,
      *
      *
      * @param syote Kutsujan syote
@@ -37,13 +37,10 @@ public class Generoijatoiminnot {
      *
      */
     public static boolean lauseSisaltaaVainYhdenProposition(String syote) {
-        Sanahyppyri sanahyppyri = new Sanahyppyri();
-        Tyhjahyppyri tyhjahyppyri = new Tyhjahyppyri();
 
         String yhdenPropositionTarkistaja = syote;
-        yhdenPropositionTarkistaja = yhdenPropositionTarkistaja.substring(sanahyppyri.hyppaaTulevaSana(yhdenPropositionTarkistaja));
-        yhdenPropositionTarkistaja = yhdenPropositionTarkistaja.substring(tyhjahyppyri.hyppaaTyhja(yhdenPropositionTarkistaja));
-        return (yhdenPropositionTarkistaja.length() == 0);
+        yhdenPropositionTarkistaja = hyppaaSana(yhdenPropositionTarkistaja);
+        return (yhdenPropositionTarkistaja.isEmpty());
     }
 
     /**
@@ -63,7 +60,7 @@ public class Generoijatoiminnot {
 
     /**
      * Metodi selvittaa että onko syotteessa seuraavana oleva merkkijono
-     * negaatiota ilmaiseva;
+     * negaatiota ilmaiseva, ja onko sen jälkeen vielä syotetta;
      *
      *
      * @param syote Kutsujan syote
@@ -73,7 +70,7 @@ public class Generoijatoiminnot {
      */
     public static boolean komponenttiOnNegaatio(String syote) {
 
-        return ((syote.length() >= 5 && syote.substring(0, 3).contentEquals("not")) || (syote.length() >= 3 && syote.substring(0, 1).contentEquals("¬")));
+        return ((syote.length() >= 5 && annaTulevaSana(syote).contentEquals("not")) || (syote.length() >= 3 && annaTulevaSana(syote).contentEquals("¬")));
 
     }
 
@@ -110,31 +107,23 @@ public class Generoijatoiminnot {
      *
      */
     public static String muutaNegaatioKomponentiksiSekaPalautaMuuLause(String syote, Komponentti[] komponentit, int paikka, Propositiotaulu propositiot) {
-        Tyhjahyppyri tyhjahyppyri = new Tyhjahyppyri();
-        Suljelaskuri suljelaskuri = new Suljelaskuri();
 
-        String tarkistin = syote.substring(3);
-        int tarkistusmatka = 3;
-        tarkistusmatka += tyhjahyppyri.hyppaaTyhja(tarkistin);
-        tarkistin = tarkistin.substring(tyhjahyppyri.hyppaaTyhja(tarkistin));
+        String negaatiolause = syote;
+        syote = hyppaaSana(syote);
 
-        if (komponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta(tarkistin)) {
-            tarkistin = hyppaaYksi(tarkistin);
-            tarkistusmatka++;
-            tarkistusmatka += suljelaskuri.kunnesAliSulkeetLoppuu(tarkistin);
-            AlilauseNegaatiogeneroija generoija1 = new AlilauseNegaatiogeneroija(syote);
+        if (komponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta(syote)) {
+            syote = hyppaaYksi(syote);
+            syote = hyppaaSulkeet(syote);
+            syote = hyppaaTyhja(syote);
+            AlilauseNegaatiogeneroija generoija1 = new AlilauseNegaatiogeneroija(negaatiolause);
             komponentit[paikka] = generoija1.generoi(propositiot);
-            syote = syote.substring(tarkistusmatka);
 
         } else {
-            AlilauseNegaatiogeneroija generoija1 = new AlilauseNegaatiogeneroija(syote);
+            AlilauseNegaatiogeneroija generoija1 = new AlilauseNegaatiogeneroija(negaatiolause);
             komponentit[paikka] = generoija1.generoi(propositiot);
-            syote = hyppaaSana(syote);
-            syote = hyppaaTyhja(syote);
             syote = hyppaaSana(syote);
         }
 
-        syote = hyppaaTyhja(syote);
         return syote;
     }
 
@@ -156,8 +145,6 @@ public class Generoijatoiminnot {
      *
      */
     public static String muutaKomponentiksiSekaPalautaMuuLause(String syote, Komponentti[] komponentit, int paikka, Propositiotaulu propositiot) {
-        Sanahyppyri sanahyppyri = new Sanahyppyri();
-        Tyhjahyppyri tyhjahyppyri = new Tyhjahyppyri();
 
         if (komponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta(syote)) {
             syote = hyppaaYksi(syote);
@@ -166,8 +153,8 @@ public class Generoijatoiminnot {
             Alilausegeneroija generoija2 = new Alilausegeneroija(muuttosyote);
             komponentit[paikka] = generoija2.generoi(propositiot);
 
-        } else if (kyseessaPropositio(syote)) {
-            syote = hyppaaTyhja(syote);        
+        } else {
+            syote = hyppaaTyhja(syote);
             komponentit[paikka] = propositiot.lisaaPropositio(annaTulevaSana(syote));
             syote = hyppaaSana(syote);
         }
@@ -209,7 +196,8 @@ public class Generoijatoiminnot {
     }
 
     /**
-     * Metodi palauttaa parametrina annetusta Syoteesta merkkijonon ennen tyhjaa tai suljetta.
+     * Metodi palauttaa parametrina annetusta Syoteesta merkkijonon ennen tyhjaa
+     * tai suljetta.
      *
      *
      * @param syote Kutsujan syote
@@ -222,9 +210,10 @@ public class Generoijatoiminnot {
 
         return syote.substring(0, sanahyppyri.hyppaaTulevaSana(syote));
     }
-    
-   /**
-     * Metodi palauttaa parametrina annetusta Syoteesta tulevan sulkeiden sisaisen alueen merkkijonon.
+
+    /**
+     * Metodi palauttaa parametrina annetusta Syoteesta tulevan sulkeiden
+     * sisaisen alueen merkkijonon.
      *
      *
      * @param syote Kutsujan syote
@@ -238,13 +227,15 @@ public class Generoijatoiminnot {
         return syote.substring(0, suljelaskuri.kunnesAliSulkeetLoppuu(syote) - 1);
     }
 
-   /**
-     * Metodi hyppaa parametrina annetusta Syoteesta tulevan sulkeiden sisaisen alueen merkkijonon ja antaa loput.
+    /**
+     * Metodi hyppaa parametrina annetusta Syoteesta tulevan sulkeiden sisaisen
+     * alueen merkkijonon ja antaa loput.
      *
      *
      * @param syote Kutsujan syote
      *
-     * @return String  hypatysta tulevasta sulkeiden sisaisen alueen merkkijonosta loput.
+     * @return String hypatysta tulevasta sulkeiden sisaisen alueen
+     * merkkijonosta loput.
      *
      */
     public static String hyppaaSulkeet(String syote) {
@@ -252,8 +243,8 @@ public class Generoijatoiminnot {
 
         return syote.substring(suljelaskuri.kunnesAliSulkeetLoppuu(syote));
     }
-    
-   /**
+
+    /**
      * Metodi hyppää syotteestä yhden merkin ja antaa loput.
      *
      *
@@ -267,4 +258,88 @@ public class Generoijatoiminnot {
         return syote.substring(1);
     }
 
+    /**
+     * Metodi tarkistaa että syöte sisältää vain kaksi komponenttia, joista
+     * ensimmäinen on negaatiota ilmaiseva sana, ja jälkimmäinen on joko
+     * yksittäinen propositio, tai sulkeiden sisäinen alue. Eikä ole mitään
+     * muuta.
+     *
+     *
+     * @param syote Kutsujan syote
+     *
+     * @return boolean ei ollut muuta.
+     *
+     */
+    public static boolean lauseSisaltaaVainYhdenNegaatioKomponentin(String syote) {
+        if (annaTulevaSana(syote).contentEquals("not") || annaTulevaSana(syote).contentEquals("¬")) {
+            syote = hyppaaSana(syote);
+            if (komponenttiKoostuuSulkeidenSisallaOlevastaKokonaisuudesta(syote)) {
+                syote = hyppaaYksi(syote);
+                syote = hyppaaSulkeet(syote);
+                syote = hyppaaTyhja(syote);
+                return syote.length() == 0;
+            } else {
+                syote = hyppaaSana(syote);
+                return syote.length() == 0;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Metodi kutsuu muutaNegaatioKomponentiksiSekaPalautaMuuLause metodia, ja
+     * palauttaa kutsutulle metodille parametrina annetun komponenttitaulun
+     * ainoan komponentin. Tällä kierretään metodin
+     * muutaNegaatioKomponentiksiSekaPalautaMuuLause rajoitus tarjota pelkästään
+     * loput syötteestä.
+     *
+     * @param syote Kutsujan syote.
+     * @param propositiot Kutsujan kayttama julkinen propositiotaulu.
+     *
+     * @return Negaatio komponentti.
+     *
+     */
+    public static Komponentti palautaNegaatioKomponentti(String syote, Propositiotaulu propositiot) {
+        Komponentti[] komponentit = new Komponentti[1];
+        muutaNegaatioKomponentiksiSekaPalautaMuuLause(syote, komponentit, 0, propositiot);
+        return komponentit[0];
+    }
+
+    /**
+     * Metodi tarkistaa että syöte sisältää vain sulje alueen. Eikä ole mitään
+     * muuta.
+     *
+     *
+     * @param syote Kutsujan syote
+     *
+     * @return boolean ei ollut muuta.
+     *
+     */
+    public static boolean lauseSisaltaaVainYhdenSuljeKomponentin(String syote) {
+        if (syote.substring(0, 1).contentEquals("(")) {
+            syote = hyppaaYksi(syote);
+            syote = hyppaaSulkeet(syote);
+            return syote.length() == 0;
+        }
+        return false;
+    }
+
+    /**
+     * Metodi kutsuu muutaKomponentiksiSekaPalautaMuuLause metodia, ja
+     * palauttaa kutsutulle metodille parametrina annetun komponenttitaulun
+     * ainoan komponentin. Tällä kierretään metodin
+     * muutaKomponentiksiSekaPalautaMuuLause rajoitus tarjota pelkästään
+     * loput syötteestä.
+     *
+     * @param syote Kutsujan syote.
+     * @param propositiot Kutsujan kayttama julkinen propositiotaulu.
+     *
+     * @return Komponentti komponentti.
+     *
+     */
+    public static Komponentti palautaKomponentti(String syote, Propositiotaulu propositiot) {
+        Komponentti[] komponentit = new Komponentti[1];
+        muutaKomponentiksiSekaPalautaMuuLause(syote, komponentit, 0, propositiot);
+        return komponentit[0];
+    }
 }

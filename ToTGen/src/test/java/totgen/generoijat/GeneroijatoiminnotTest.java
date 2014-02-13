@@ -83,4 +83,17 @@ public class GeneroijatoiminnotTest extends TestCase {
     public void testhyppaaYksi() {
         assertEquals(" A and B ) or C", Generoijatoiminnot.hyppaaYksi("( A and B ) or C"));
     }
+    
+    public void testlauseSisaltaaVainYhdenNegaatioKomponentin() {
+        assertEquals(false, Generoijatoiminnot.lauseSisaltaaVainYhdenNegaatioKomponentin("aijjai"));
+        assertEquals(true, Generoijatoiminnot.lauseSisaltaaVainYhdenNegaatioKomponentin("not aijjai"));
+        assertEquals(true, Generoijatoiminnot.lauseSisaltaaVainYhdenNegaatioKomponentin("not (aijjai and aijjai)"));
+        assertEquals(false, Generoijatoiminnot.lauseSisaltaaVainYhdenNegaatioKomponentin("not (aijjai and aijjai) and G"));
+    }
+    
+    public void testlauseSisaltaaVainYhdenSuljeKomponentin() {
+        assertEquals(false, Generoijatoiminnot.lauseSisaltaaVainYhdenSuljeKomponentin("(aijjai) and B"));
+        assertEquals(true, Generoijatoiminnot.lauseSisaltaaVainYhdenSuljeKomponentin("(aijjai)"));
+        assertEquals(false, Generoijatoiminnot.lauseSisaltaaVainYhdenSuljeKomponentin("(aijjai))(B)"));
+    }    
 }

@@ -28,4 +28,8 @@ Vähintään päivämäärä, käytetty aika ja ajankäytön kohde
 
 6.helmikuuta, 1h Muokattu testejä Totuustaulu ja Propositiotaulu. Muokattu luokkaa Propositiotaulu. Muokattu Aiheenmäärittelyä ja Luokkakaaviota.
 
-11.helmikuuta, Muokattu luokkaa Sulkujenlukija ja SulkujenlukijaTest
+11.helmikuuta, 0,5h Muokattu luokkaa Sulkujenlukija ja SulkujenlukijaTest
+
+12.helmikuuta, 5,5h Refactoroitu luokkia Generoijatoiminnot ja AlilauseNegaatioGeneroija. Muokattu luokkia AlilauseGeneroija ja Generoijatoiminnot, myös Javadocit. Muokattu toista sekvenssikaaviota. Luotu kolmas sekvenssikaavio.
+
+13.helmikuuta, 3,5h Muokattu luokkaa Generoijatoiminnot, myös Javadocit. Lisätty testejä Generoijatoiminnot, AlilauseGeneroija ja SuljeLaskuri. Lisätty Javadocit taulut pakkauksen luokille. Muokattu Aihemäärittelyä. Muokattu luokkakaaviota.

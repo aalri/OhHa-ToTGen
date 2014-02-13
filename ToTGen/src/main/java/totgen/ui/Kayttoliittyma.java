@@ -34,7 +34,7 @@ import javax.swing.table.TableModel;
  *
  *
  *
- * Kayttoliittyma luokka, luo kayttoliittyman rungon.
+ * Kayttoliittyma luokka luo kayttoliittyman rungon.
  *
  *
  */

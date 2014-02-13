@@ -12,6 +12,16 @@ import java.util.ArrayList;
  *
  * @author alrial@cs
  */
+/**
+ *
+ *
+ *
+ *
+ *
+ * Vaihtoehtotaulu luokka, jonka tarkoituksena on tarjota julkinen ArrayList
+ * vaihtoehtojen säilömiseen. Pääosin Totuustaulu luokan luoVaihtoehdot metodin käytössä.
+ *
+ */
 public class Vaihtoehtotaulu {
     private ArrayList <int[]> taulu;
     

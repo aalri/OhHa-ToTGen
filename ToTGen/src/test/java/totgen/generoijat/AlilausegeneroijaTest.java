@@ -20,6 +20,25 @@ public class AlilausegeneroijaTest extends TestCase {
         A.generoi(taulu);
         assertEquals(taulu.getPropositioTaulu().get("a"), A.generoi(taulu));
     }
+    
+    public void testgeneroiYksiNegaatio() {
+        Alilausegeneroija A = new Alilausegeneroija("not a");
+        Propositiotaulu taulu = new Propositiotaulu();
+        taulu.lisaaPropositio("a");
+        taulu.getPropositioTaulu().get("a").asetaTotuus(0);
+        A.generoi(taulu);
+        assertEquals(true, A.generoi(taulu).totuus());
+    }
+    
+    public void testgeneroiYksiSulkujenSisainen() {
+        Alilausegeneroija A = new Alilausegeneroija("((a))");
+        Propositiotaulu taulu = new Propositiotaulu();
+        taulu.lisaaPropositio("a");
+        taulu.getPropositioTaulu().get("a").asetaTotuus(1);
+        A.generoi(taulu);
+        assertEquals(true, A.generoi(taulu).totuus());
+    }
+    
 
     public void testgeneroiUseampipropositio() {
         Alilausegeneroija A = new Alilausegeneroija("a and b");
