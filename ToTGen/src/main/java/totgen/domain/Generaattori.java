@@ -6,10 +6,7 @@
 package totgen.domain;
 
 import totgen.taulut.Propositiotaulu;
-import java.util.HashMap;
 import totgen.generoijat.Alilausegeneroija;
-import totgen.lauseenkomponentit.Komponentti;
-import totgen.lauseenkomponentit.Propositio;
 
 /**
  *

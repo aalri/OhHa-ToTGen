@@ -7,8 +7,6 @@ package totgen.domain;
 
 import totgen.taulut.Vaihtoehtotaulu;
 import java.util.ArrayList;
-import java.util.Collections;
-import totgen.lauseenkomponentit.Propositio;
 import totgen.syntaksinlukijat.Sulkujenlukija;
 import totgen.syntaksinlukijat.Syntaksinlukija;
 import totgen.syntaksinlukijat.TyhjienSulkujenlukija;

@@ -33,3 +33,5 @@ Vähintään päivämäärä, käytetty aika ja ajankäytön kohde
 12.helmikuuta, 5,5h Refactoroitu luokkia Generoijatoiminnot ja AlilauseNegaatioGeneroija. Muokattu luokkia AlilauseGeneroija ja Generoijatoiminnot, myös Javadocit. Muokattu toista sekvenssikaaviota. Luotu kolmas sekvenssikaavio.
 
 13.helmikuuta, 3,5h Muokattu luokkaa Generoijatoiminnot, myös Javadocit. Lisätty testejä Generoijatoiminnot, AlilauseGeneroija ja SuljeLaskuri. Lisätty Javadocit taulut pakkauksen luokille. Muokattu Aihemäärittelyä. Muokattu luokkakaaviota.
+
+25.helmikuuta, 2,5h Tehty käyttöohjeet, rakennekuvaus ja muokattu luokkaa Paattelyntarkistaja. Lisatty Kayttoliittyma luokkakaavioon.

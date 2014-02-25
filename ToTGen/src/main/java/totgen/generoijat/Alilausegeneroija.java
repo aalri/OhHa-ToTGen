@@ -5,13 +5,8 @@
  */
 package totgen.generoijat;
 
-import java.util.HashMap;
 import totgen.taulut.Propositiotaulu;
-import totgen.laskurit.Sanahyppyri;
-import totgen.laskurit.Suljelaskuri;
-import totgen.laskurit.Tyhjahyppyri;
 import totgen.lauseenkomponentit.Komponentti;
-import totgen.lauseenkomponentit.Propositio;
 
 /**
  *

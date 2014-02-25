@@ -89,7 +89,7 @@ public class GeneroiTotuustaulu implements ActionListener {
         }else{
             this.virheilmoitus = new JLabel(syntaksi);
             this.container.add(this.virheilmoitus);
-            this.virheilmoitus.setBounds(50, 160, 300, 30);
+            this.virheilmoitus.setBounds(50, 160, 400, 30);
             this.container.repaint();
         }
     }

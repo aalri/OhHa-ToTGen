@@ -58,8 +58,8 @@ public class PaattelynTarkistaja {
     }
 
     /**
-     * Metodi kaskee toista totuustaulua tarkistamaan syntaksinsa, ja
-     * palauttaa sen tuloksen.
+     * Metodi kaskee toista totuustaulua tarkistamaan syntaksinsa, ja palauttaa
+     * sen tuloksen.
      *
      * @return String tulos.
      */
@@ -93,18 +93,14 @@ public class PaattelynTarkistaja {
      */
     public boolean voidaanPaatella() {
 
-        if (this.totuudet1.length == this.totuudet2.length) {
-            for (int i = 0; i < this.totuudet1.length; i++) {
-                if (this.totuudet1[i][this.totuudet2[i].length - 1].contentEquals("true")) {
-                    if (this.totuudet2[i][this.totuudet1[i].length - 1].contentEquals("false")) {
-                        return false;
-                    }
+        for (int i = 0; i < this.totuudet1.length; i++) {
+            if (this.totuudet1[i][this.totuudet2[i].length - 1].contentEquals("true")) {
+                if (this.totuudet2[i][this.totuudet1[i].length - 1].contentEquals("false")) {
+                    return false;
                 }
             }
-            return true;
         }
-
-        return false;
+        return true;
     }
 
 }

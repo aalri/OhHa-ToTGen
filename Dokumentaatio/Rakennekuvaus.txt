@@ -1,0 +1,12 @@
+TotGenin rakenteen ydin pohjautuu Totuustauluun sekä lauseeseen, joka sisältää komponentteja. Totuustaulu asettaa lauseen propositiokomponenteille eri totuusarvoja, ja kyselee lauseen omaa totuusarvoa.
+Lausetta ei oletusarvoisesti ole, jolloin totuustaulu joutuu käyttämään ensin Generaattoria luodakseen lauseen itselleen.
+Ennen Generaattorin käyttöä Totuustaulu joutuu käymään kaikki syntaksinlukijansa läpi annetulla syötteellä.
+Totuustaululla on oma Propositiotaulu johon listataan kaikki mahdolliset propositiot mitä on generoitu.
+Totuustaululla on myös oma Vaihtoehtotaulu mihin luodaan kaikki mahdolliset asetettavat totuusarvoyhdistelmät.
+
+Generaattori luo uuden Alilausegeneroijan sekä palauttaa sen suorituksen Lauseena Totuustaululle.
+Alilausegeneroija tulkitsee syötettä sekä luo syötteen mukaan joko Alilausegeneroijan tai Alilausenegaatiogeneroijan.
+Alilausegeneroijan tai Alilausenegaatiogeneroijan ollessa tyytyväinen syötteensä lukuun, se pyytää Generoijaluojaa muodostamaan itselleen komponentin, johon liitetään mahdollisia muita komponentteja. 
+Generoijatoiminnot luokkaan on summattu generoijille yhteisiä toimintoja.
+
+PaattelynTarkistus luo kaksi Totuustaulua sekä käyttää niiden tuloksia selvittääkseen voidaanko ensimmäisen taulun lauseesta päätellä toisen lause.
