@@ -33,25 +33,72 @@ import totgen.domain.Totuustaulu;
  *
  */
 public class GeneroiTotuustaulu implements ActionListener {
-
+    /**
+     *
+     * Syötteen kirjoittamiseen tarkoitettu tekstialue
+     */
     private JTextField syoteAlue;
+    /**
+     *
+     * Totuustaulun tuloksen tulostuksen taulu
+     */
     private JTable totuustaulu;
-    private Container mappi;
+    /**
+     *
+     * Käyttöliittymän sivun container
+     */
+    private Container sivu;
+    /**
+     *
+     * Koko käyttöliittymän container
+     */
     private Container container;
+    /**
+     *
+     * Käyttöliittymän ikkuna
+     */
     private JFrame frame;
+    /**
+     *
+     * Tulostettavan totuustaulun sisältö
+     */
     private TableModel totuustaulunData;
+    /**
+     *
+     * Virheilmoituksen tulostuksessa käytetty kenttä
+     */
     private JLabel virheilmoitus;
 
-    public GeneroiTotuustaulu(JTextField syoteAlue, JTable totuustaulu, TableModel totuustaulunData, Container mappi, Container container, JFrame frame) {
+    /**
+     *
+     *
+     *
+     *
+     *
+     * Konstruktori kytkee toiminnallisuudet käyttöliittymän komponentteihin
+     *
+     *
+     */
+    public GeneroiTotuustaulu(JTextField syoteAlue, JTable totuustaulu, TableModel totuustaulunData, Container sivu, Container container, JFrame frame) {
         this.syoteAlue = syoteAlue;
         this.totuustaulu = totuustaulu;
-        this.mappi = mappi;
+        this.sivu = sivu;
         this.totuustaulunData = totuustaulunData;
         this.container = container;
         this.virheilmoitus = new JLabel();
         this.frame = frame;
     }
 
+    /**
+     *
+     *
+     *
+     *
+     *
+     * Metodi luo Totuustaulun tekstialue komponentin syötteellä ja tulostaa käyttöliittymään totuustaulun tuloksen.
+     *
+     *
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
 
@@ -77,7 +124,7 @@ public class GeneroiTotuustaulu implements ActionListener {
         this.totuustaulu.setRowMargin(0);
         if (this.frame.getBounds().width < this.totuustaulu.getBounds().width + 130 || this.frame.getBounds().height < this.totuustaulu.getBounds().height + 300 ){
             if (this.totuustaulu.getHeight() < 1000){
-                this.mappi.setBounds(0, 0, this.totuustaulu.getBounds().width + 430,this.totuustaulu.getBounds().height + 300);
+                this.sivu.setBounds(0, 0, this.totuustaulu.getBounds().width + 430,this.totuustaulu.getBounds().height + 300);
                 this.frame.setBounds(this.frame.getBounds().x, this.frame.getBounds().y, this.totuustaulu.getBounds().width + 200,this.totuustaulu.getBounds().height + 300);
             }         
         }

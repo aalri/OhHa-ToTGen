@@ -23,33 +23,87 @@ import totgen.domain.PaattelynTarkistaja;
  *
  *
  *
- * GeneroiPaattelynTarkistus luokka, jonka tarkoituksena napin painalluksesta on luoda PaattelynTarkistus olio syotealueissa olevilla syotteilla,
- * ja muokata kayttoliittymaa kyseisen olion palautusten mukaan.
+ * GeneroiPaattelynTarkistus luokka, jonka tarkoituksena napin painalluksesta on
+ * luoda PaattelynTarkistus olio syotealueissa olevilla syotteilla, ja muokata
+ * kayttoliittymaa kyseisen olion palautusten mukaan.
  *
  *
  */
 public class GeneroiPaattelynTarkistus implements ActionListener {
 
+    /**
+     *
+     * Ensimmäisen syötteen kirjoittamiseen tarkoitettu tekstialue
+     */
     private JTextField syoteAlue1;
+    /**
+     *
+     * Toisen syötteen kirjoittamiseen tarkoitettu tekstialue
+     */
     private JTextField syoteAlue2;
+    /**
+     *
+     * Ensimmäisen syötteen virheilmoituksen tulostuksessa käytetty kenttä
+     */
     private JLabel virheilmoitus;
+    /**
+     *
+     * Toisen syötteen virheilmoituksen tulostuksessa käytetty kenttä
+     */
     private JLabel virheilmoitus2;
+    
+    /**
+     *
+     * Paattelyntarkistajan tuloksen tulostuksessa käytetty kenttä
+     */
     private JLabel tulostealue;
-    private Container mappi;
+    /**
+     *
+     * Käyttöliittymän sivun container
+     */
+    private Container sivu;
+    /**
+     *
+     * Koko käyttöliittymän container
+     */
     private Container container;
+    /**
+     *
+     * Käyttöliittymän ikkuna
+     */
     private JFrame frame;
 
-    public GeneroiPaattelynTarkistus(JTextField syoteAlue1, JTextField syoteAlue2, JLabel virheilmoitus, JLabel virheilmoitus2, JLabel tulostealue, Container mappi, Container container, JFrame frame) {
+    /**
+     *
+     *
+     *
+     *
+     *
+     * Konstruktori kytkee toiminnallisuudet käyttöliittymän komponentteihin
+     *
+     *
+     */
+    public GeneroiPaattelynTarkistus(JTextField syoteAlue1, JTextField syoteAlue2, JLabel virheilmoitus, JLabel virheilmoitus2, JLabel tulostealue, Container sivu, Container container, JFrame frame) {
         this.syoteAlue1 = syoteAlue1;
         this.syoteAlue2 = syoteAlue2;
         this.virheilmoitus = virheilmoitus;
         this.virheilmoitus2 = virheilmoitus2;
         this.tulostealue = tulostealue;
-        this.mappi = mappi;
+        this.sivu = sivu;
         this.container = container;
         this.frame = frame;
     }
-
+    
+    /**
+     *
+     *
+     *
+     *
+     *
+     * Metodi luo PaattelynTarkistajan tekstialue komponentin syötteellä ja tulostaa käyttöliittymään totuustaulun tuloksen.
+     *
+     *
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         String syote1 = this.syoteAlue1.getText();
@@ -66,26 +120,26 @@ public class GeneroiPaattelynTarkistus implements ActionListener {
 
         if (syntaksi1.contentEquals("true") && syntaksi2.contentEquals("true")) {
             paattelyntarkistaja.Generoi();
-            if (paattelyntarkistaja.voidaanPaatella()){
+            if (paattelyntarkistaja.voidaanPaatella()) {
                 this.tulostealue = new JLabel("Spock: That is quite logical, captain. (true)");
-            }else{
+            } else {
                 this.tulostealue = new JLabel("<html><body>Spock: That is illogical, Ensign. Odors cannot travel<br>through the vacuum of space. (false)</body></html>");
             }
             this.container.add(this.tulostealue);
             this.tulostealue.setBounds(50, 220, 380, 100);
-            
+
         } else {
             if (!syntaksi1.contentEquals("true")) {
                 this.virheilmoitus = new JLabel(syntaksi1);
                 this.container.add(this.virheilmoitus);
-                this.virheilmoitus.setBounds(50, 100, 300, 30);
+                this.virheilmoitus.setBounds(50, 100, 400, 30);
             }
             if (!syntaksi2.contentEquals("true")) {
                 this.virheilmoitus2 = new JLabel(syntaksi2);
                 this.container.add(this.virheilmoitus2);
-                this.virheilmoitus2.setBounds(50, 160, 300, 30);
+                this.virheilmoitus2.setBounds(50, 160, 400, 30);
             }
-            
+
         }
         this.container.repaint();
     }
