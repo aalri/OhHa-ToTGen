@@ -36,7 +36,7 @@ public class Totuustaulu {
     private String syote;
     
     /**
-     * Totuustaulun tarkistuksessa käytettävät syntaksinlukijat.
+     * Totuustaulun syötteen tarkistuksessa käytettävät syntaksinlukijat.
      */
     private ArrayList<Syntaksinlukija> syntaksinlukijat;
     
@@ -111,7 +111,7 @@ public class Totuustaulu {
     }
     
    /**
-     * Metodi luo totuudet ja propositiot,
+     * Metodi luo totuudet ja propositiot lauseen avulla,
      * ja asettaa ne olion totuudet ja propositiot muuttujiin.
      *
      *
@@ -134,7 +134,7 @@ public class Totuustaulu {
         this.propositiot[pituus] = this.syote;
         this.totuudet = new String[vaihtoehdot.size()][vaihtoehdot.get(0).length];
         for (int i = 0; i < vaihtoehdot.size(); i++) {
-            String[] rivi = this.lause.muodostaTotuusrivilista(vaihtoehdot.get(i));
+            String[] rivi = this.lause.muodostaTotuusriviTauluna(vaihtoehdot.get(i));
             this.totuudet[i] = rivi;
         }
     }

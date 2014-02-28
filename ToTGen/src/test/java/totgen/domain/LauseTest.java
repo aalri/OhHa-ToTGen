@@ -82,26 +82,26 @@ public class LauseTest extends TestCase {
         
         Lause lause = new Lause(new Ekvivalenssi(a, b), propositiot);
         totuusarvot = new int[]{1, 1, 0};
-        assertEquals("true", lause.muodostaTotuusrivilista(totuusarvot)[2]);
+        assertEquals("true", lause.muodostaTotuusriviTauluna(totuusarvot)[2]);
         totuusarvot = new int[]{1, 0, 0};
-        assertEquals("false", lause.muodostaTotuusrivilista(totuusarvot)[2]);
+        assertEquals("false", lause.muodostaTotuusriviTauluna(totuusarvot)[2]);
         totuusarvot = new int[]{0, 1, 0};
-        assertEquals("false", lause.muodostaTotuusrivilista(totuusarvot)[2]);
+        assertEquals("false", lause.muodostaTotuusriviTauluna(totuusarvot)[2]);
         totuusarvot = new int[]{0, 0, 0};
-        assertEquals("true", lause.muodostaTotuusrivilista(totuusarvot)[2]);
+        assertEquals("true", lause.muodostaTotuusriviTauluna(totuusarvot)[2]);
     }
     
         public void testgetPropositiolista() {
         Propositio d = propositiot.lisaaPropositio("D");
         Lause lause = new Lause(new Ekvivalenssi(a, new Konjunktio(b , d)), propositiot);
         totuusarvot = new int[]{1, 1, 1, 1};
-        assertEquals("true", lause.muodostaTotuusrivilista(totuusarvot)[3]);
+        assertEquals("true", lause.muodostaTotuusriviTauluna(totuusarvot)[3]);
         totuusarvot = new int[]{1, 0, 0, 0};
-        assertEquals("false", lause.muodostaTotuusrivilista(totuusarvot)[3]);
+        assertEquals("false", lause.muodostaTotuusriviTauluna(totuusarvot)[3]);
         totuusarvot = new int[]{0, 1, 0, 0};
-        assertEquals("true", lause.muodostaTotuusrivilista(totuusarvot)[3]);
+        assertEquals("true", lause.muodostaTotuusriviTauluna(totuusarvot)[3]);
         totuusarvot = new int[]{0, 1, 1, 0};
-        assertEquals("false", lause.muodostaTotuusrivilista(totuusarvot)[3]);
+        assertEquals("false", lause.muodostaTotuusriviTauluna(totuusarvot)[3]);
     }
         
         public void testgetPropositioNimetlista() {

@@ -95,21 +95,21 @@ public class Lause {
     }
 
     /**
-     * Metodi joka palauttaa annetuilla totuusarvoilla muodostetun totuusrivi
-     * listan
+     * Metodi joka palauttaa annetuilla totuusarvoilla muodostetun totuusrivin
+     * tauluna.
      *
      * @param totuusarvot annetut arvot
-     * @return totuusrivi lista annetuilla arvoilla
+     * @return totuusrivi annetuilla arvoilla
      */
-    public String[] muodostaTotuusrivilista(int[] totuusarvot) {
-        String[] lista = new String[totuusarvot.length];
+    public String[] muodostaTotuusriviTauluna(int[] totuusarvot) {
+        String[] rivi = new String[totuusarvot.length];
         ArrayList<Propositio> pro = this.getPropositiolista();
         for (int i = 0; i < pro.size(); i++) {
             pro.get(i).asetaTotuus(totuusarvot[i]);
-            lista[i] = "" + pro.get(i).totuus();
+            rivi[i] = "" + pro.get(i).totuus();
         }
-        lista[totuusarvot.length - 1] = "" + this.paakonnektiivi.totuus();
+        rivi[totuusarvot.length - 1] = "" + this.paakonnektiivi.totuus();
 
-        return lista;
+        return rivi;
     }
 }

@@ -5,8 +5,12 @@ Totuustaululla on oma Propositiotaulu johon listataan kaikki mahdolliset proposi
 Totuustaululla on myös oma Vaihtoehtotaulu mihin luodaan kaikki mahdolliset asetettavat totuusarvoyhdistelmät.
 
 Generaattori luo uuden Alilausegeneroijan sekä palauttaa sen suorituksen Lauseena Totuustaululle.
-Alilausegeneroija tulkitsee syötettä sekä luo syötteen mukaan joko Alilausegeneroijan tai Alilausenegaatiogeneroijan.
+Alilausegeneroija tulkitsee syötettä sekä luo syötteen mukaan joko Alilausegeneroijan tai Alilausenegaatiogeneroijan. Tästä muodostuu generoija-puu, jonka generoijat muodostavat siitä kutsunsa toteutettuaan rakenteeltaan samanlaisen komponentti-puun.
 Alilausegeneroijan tai Alilausenegaatiogeneroijan ollessa tyytyväinen syötteensä lukuun, se pyytää Generoijaluojaa muodostamaan itselleen komponentin, johon liitetään mahdollisia muita komponentteja. 
 Generoijatoiminnot luokkaan on summattu generoijille yhteisiä toimintoja.
 
-PaattelynTarkistus luo kaksi Totuustaulua sekä käyttää niiden tuloksia selvittääkseen voidaanko ensimmäisen taulun lauseesta päätellä toisen lause.
+Lause kutsuu pääkomponenttia, joka kutsuu 0-2 komponenttia saadakseen lauseen totuusarvon. Eli Lause käyttää komponenteista muodostuvaa puuta juuresta.
+
+PaattelynTarkistus luo kaksi Totuustaulua sekä käyttää niiden tuloksia selvittääkseen voidaanko ensimmäisen taulun lauseesta päätellä toisen taulun lause.
+
+Käyttöliittymä käyttää tottustaulua, sekä päättelyntarkistajaa tulosten tulostamiseen syötteistä.
