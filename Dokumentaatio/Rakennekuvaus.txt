@@ -1,16 +1,16 @@
-TotGenin rakenteen ydin pohjautuu Totuustauluun sek� lauseeseen, joka sis�lt�� komponentteja. Totuustaulu asettaa lauseen propositiokomponenteille eri totuusarvoja, ja kyselee lauseen omaa totuusarvoa.
-Lausetta ei oletusarvoisesti ole, jolloin totuustaulu joutuu k�ytt�m��n ensin Generaattoria luodakseen lauseen itselleen.
-Ennen Generaattorin k�ytt�� Totuustaulu joutuu k�ym��n kaikki syntaksinlukijansa l�pi annetulla sy�tteell�.
-Totuustaululla on oma Propositiotaulu johon listataan kaikki mahdolliset propositiot mit� on generoitu.
-Totuustaululla on my�s oma Vaihtoehtotaulu mihin luodaan kaikki mahdolliset asetettavat totuusarvoyhdistelm�t.
+TotGenin rakenteen ydin pohjautuu Totuustauluun sekä lauseeseen, joka sisältää komponentteja. Totuustaulu asettaa lauseen propositiokomponenteille eri totuusarvoja, ja kyselee lauseen omaa totuusarvoa.
+Lausetta ei oletusarvoisesti ole, jolloin totuustaulu joutuu käyttämään ensin Generaattoria luodakseen lauseen itselleen.
+Ennen Generaattorin käyttää Totuustaulu joutuu käymään kaikki syntaksinlukijansa läpi annetulla syötteellä.
+Totuustaululla on oma Propositiotaulu johon listataan kaikki mahdolliset propositiot mitä on generoitu.
+Totuustaululla on myös oma Vaihtoehtotaulu mihin luodaan kaikki mahdolliset asetettavat totuusarvoyhdistelmät.
 
-Generaattori luo uuden Alilausegeneroijan sek� palauttaa sen suorituksen Lauseena Totuustaululle.
-Alilausegeneroija tulkitsee sy�tett� sek� luo sy�tteen mukaan joko Alilausegeneroijan tai Alilausenegaatiogeneroijan. T�st� muodostuu generoija-puu, jonka generoijat muodostavat siit� kutsunsa toteutettuaan rakenteeltaan samanlaisen komponentti-puun.
-Alilausegeneroijan tai Alilausenegaatiogeneroijan ollessa tyytyv�inen sy�tteens� lukuun, se pyyt�� Generoijaluojaa muodostamaan itselleen komponentin, johon liitet��n mahdollisia muita komponentteja. 
-Generoijatoiminnot luokkaan on summattu generoijille yhteisi� toimintoja.
+Generaattori luo uuden Alilausegeneroijan sekä palauttaa sen suorituksen Lauseena Totuustaululle.
+Alilausegeneroija tulkitsee syötettä sekä luo syötteen mukaan joko Alilausegeneroijan tai Alilausenegaatiogeneroijan. Tästä muodostuu generoija-puu, jonka generoijat muodostavat siitä kutsunsa toteutettuaan rakenteeltaan samanlaisen komponentti-puun.
+Alilausegeneroijan tai Alilausenegaatiogeneroijan ollessa tyytyväinen syötteensä lukuun, se pyytää Generoijaluojaa muodostamaan itselleen komponentin, johon liitetään mahdollisia muita komponentteja. 
+Generoijatoiminnot luokkaan on summattu generoijille yhteisiä toimintoja.
 
-Lause kutsuu p��komponenttia, joka kutsuu 0-2 komponenttia saadakseen lauseen totuusarvon. Eli Lause k�ytt�� komponenteista muodostuvaa puuta juuresta.
+Lause kutsuu pääkomponenttia, joka kutsuu 0-2 komponenttia saadakseen lauseen totuusarvon. Eli Lause käyttää komponenteista muodostuvaa puuta juuresta.
 
-PaattelynTarkistus luo kaksi Totuustaulua sek� k�ytt�� niiden tuloksia selvitt��kseen voidaanko ensimm�isen taulun lauseesta p��tell� toisen taulun lause.
+PaattelynTarkistus luo kaksi Totuustaulua sekä käyttää niiden tuloksia selvittääkseen voidaanko ensimmäisen taulun lauseesta päätellä toisen taulun lause.
 
-K�ytt�liittym� k�ytt�� Totuustaulua, sek� p��ttelyntarkistajaa tulosten tulostamiseen sy�tteist�.
+Käyttöliittymä käyttää Totuustaulua, sekä Paattelyntarkistajaa tulosten tulostamiseen syötteistä.
